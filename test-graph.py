@@ -9,15 +9,14 @@ def main():
     G = nx.Graph()
 
     # Add nodes
-    #G.add_nodes_from(['MS'], label='MS')
-    #G.add_nodes_from(['LinkedIn'], label='LinkedIn')
-    #G.add_nodes_from(['FB'], label='FB')
-    #G.add_nodes_from(['Instagram'], label='Instagram')
+    G.add_nodes_from(['MS', 'LinkedIn', 'FB', 'Instagram', 'Xbox', 'Whatsapp'])
 
-    #pos = nx.spring_layout(G)
-    pos = {'MS': (4,5), 'FB': (5,4), 'LinkedIn': (2,3), 'Instagram': (1,2) }
+    pos = nx.spring_layout(G, dim=2, k=0.3, pos={'MS':(-10,-10), 'FB':(10,10)}, iterations=100, scale=100)
+    #pos = nx.circular_layout(G, dim=2, scale=2)
+    #pos = nx.random_layout(G)
+    #pos = {'MS': (4,5), 'FB': (5,4), 'LinkedIn': (2,3), 'Instagram': (1,2) }
 
-    nx.draw_networkx_nodes(G, pos, nodelist=['MS', 'FB', 'LinkedIn', 'Instagram'], node_color='r', node_size=2000, alpha=0.8)
+    nx.draw_networkx_nodes(G, pos, nodelist=['MS', 'FB', 'LinkedIn', 'Instagram', 'Xbox','Whatsapp'], node_color='lightblue', node_size=5000)
 
     # Add edges
     #e = ('MS', 'LinkedIn')
@@ -25,13 +24,13 @@ def main():
     #G.add_edge(*e)
     #G.add_edge(*f)
 
-    nx.draw_networkx_edges(G, pos, edgelist=[('MS', 'LinkedIn'), ('FB', 'Instagram')], width=3, alpha=0.4, edge_color='r')
+    nx.draw_networkx_edges(G, pos, edgelist=[('MS', 'LinkedIn'), ('FB', 'Instagram'), ('MS', 'Xbox'), ('FB', 'Whatsapp')], width=3, alpha=0.4, edge_color='r')
 
-    labels = {'MS': 'Microsoft', 'FB': 'Facebook', 'LinkedIn': 'LinkedIn', 'Instagram': 'Instagram'}
+    labels = {'MS': 'Microsoft', 'FB': 'Facebook', 'LinkedIn': 'LinkedIn', 'Instagram': 'Instagram', 'Xbox': 'Xbox', 'Whatsapp': 'Whatsapp'}
 
     nx.draw_networkx_labels(G, pos, labels, font_size=12)
-    #plt.savefig("simple_path.png") # save as png
-    plt.axis('off')
+    #plt.axis('off')
+    plt.savefig("test.png", transparent=True, dpi=300)
     plt.show() # display
 
 
