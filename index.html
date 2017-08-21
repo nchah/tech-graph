@@ -9,10 +9,6 @@
   stroke-width: 1.5px;
 }
 
-/*#acquisition {
-  fill: green;
-}*/
-
 .link.main {
   stroke: green;
 }
@@ -25,7 +21,11 @@
   stroke: skyblue;
 }
 
-.link.discontinued {
+.link.hardware {
+  stroke: purple;
+}
+
+.link.competitor {
   stroke-dasharray: 0,2 1;
 }
 
@@ -36,7 +36,7 @@ circle {
 }
 
 text {
-  font: 12px monospace;
+  font: 10px monospace;
   font-weight: bold;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
@@ -53,41 +53,58 @@ text {
 // https://en.wikipedia.org/wiki/List_of_mergers_and_acquisitions_by_Facebook
 // https://en.wikipedia.org/wiki/List_of_mergers_and_acquisitions_by_Amazon.com
 var links = [
-  {source: "", target: "Microsoft", img: "microsoft.png"},
-  {source: "", target: "Facebook", img: "facebook.png"},
-  {source: "", target: "Alphabet", img: "alphabet.png"},
-  {source: "", target: "Amazon", img: "amazon.png"},
-  {source: "", target: "Apple", img: "apple.png"},
+  {source: "", target: "Microsoft", img: "images/microsoft.png"},
+  {source: "", target: "Facebook", img: "images/facebook.png"},
+  {source: "", target: "Alphabet", img: "images/alphabet.png"},
+  {source: "", target: "Amazon", img: "images/amazon.png"},
+  {source: "", target: "Apple", img: "images/apple.png"},
 
-  {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "hotmail.png"},
-  {source: "Hotmail", target: "Outlook", type: "transition", img: "outlook.png"},
-  {source: "Microsoft", target: "Bing", type: "main"},
-  {source: "Microsoft", target: "Skype", type: "acquisition"},
-  {source: "Microsoft", target: "Nokia", type: "acquisition"},
-  {source: "Microsoft", target: "Linkedin", type: "acquisition"},
+  {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
+  {source: "Hotmail", target: "Outlook", type: "transition", img: "images/outlook.png"},
+  {source: "Microsoft", target: "Bing", type: "main", img:"images/bing.png"},
+  {source: "Microsoft", target: "Skype", type: "acquisition", img:"images/skype.png"},
+  {source: "Microsoft", target: "Nokia", type: "acquisition", img: "images/nokia.png"},
+  {source: "Microsoft", target: "Linkedin", type: "acquisition", img: "images/linkedin.png"},
 
-  {source: "Facebook", target: "Instagram", type: "acquisition", img: "instagram.png"},
-  {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "whatsapp.png"},
-  {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "oculus.png"},
+  {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
+  {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
+  {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
+  {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
 
+  {source: "Amazon", target: "Amazon.com", type: "main"},
+  {source: "Amazon", target: "AWS", type: "main"},
   {source: "Amazon", target: "Whole Foods", type: "acquisition"},
   {source: "Amazon", target: "IMDb", type: "acquisition"},
   {source: "Amazon", target: "Audible.com", type: "acquisition"},
-  {source: "Amazon", target: "Twitch", type: "acquisition"},
+  {source: "Amazon", target: "Twitch.tv", type: "acquisition"},
+  {source: "Amazon", target: "Kindle", type: "hardware"},
+  {source: "Amazon", target: "Kindle", type: "hardware"},
 
-  {source: "Alphabet", target: "Nest", type: "acquisition" },
-  {source: "Alphabet", target: "Calico", type: "acquisition" },
-  {source: "Alphabet", target: "Google", type: "acquisition", img: "google.png"},
-  {source: "Google", target: "Maps", type: "acquisition"},
-  {source: "Google", target: "Search", type: "main"},
-  {source: "Google", target: "Gmail", type: "acquisition"},
-  {source: "Google", target: "YouTube", type: "acquisition"},
+  {source: "Alphabet", target: "Nest", type: "acquisition", img:"images/nest.png"},
+  {source: "Alphabet", target: "Calico", type: "acquisition", img:"images/calico.png" },
+  {source: "Alphabet", target: "Google", type: "acquisition", img: "images/google2.png"},
+  {source: "Alphabet", target: "DeepMind", type: "acquisition", img: ""},
+  {source: "Alphabet", target: "X", type: "acquisition", img: ""},
+  {source: "Google", target: "Google Maps", type: "acquisition", img: "images/google-maps.png"},
+  {source: "Google", target: "Search", type: "main", img: "images/google2.png"},
+  {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
+  {source: "Google", target: "Gmail", type: "main", img: "images/gmail.png"},
+  {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
   {source: "Google", target: "G Suite", type: "acquisition"},
+  {source: "Google", target: "Android", type: "acquisition", img:"images/android.png"},
 
-  {source: "Apple", target: "Siri", type: "acquisition"},
-  {source: "Apple", target: "Siri", type: "acquisition"},
-  {source: "Apple", target: "Siri", type: "acquisition"},
-  {source: "Apple", target: "Siri", type: "acquisition"},
+  {source: "Apple", target: "Siri", type: "acquisition", img:"images/siri.png"},
+  {source: "Apple", target: "Apple Maps", type: "main"},
+  {source: "Apple", target: "iTunes", type: "main"},
+  {source: "Apple", target: "iPod", type: "hardware"},
+  {source: "Apple", target: "iPhone", type: "hardware"},
+  {source: "Apple", target: "iPad", type: "hardware"},
+  {source: "Apple", target: "Mac", type: "hardware"},
+  {source: "Apple", target: "Watch", type: "hardware"},
+  {source: "Apple", target: "TV", type: "hardware"},
+
+  {source: "Gmail", target: "Outlook", type: "competitor"},
+  {source: "Bing", target: "Search", type: "competitor"},
 ];
 
 var nodes = {};
@@ -107,7 +124,7 @@ links.splice(0, delCount);
 
 
 var width = 1000,
-    height = 500;
+    height = 600;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -134,7 +151,7 @@ var borderPath = svg.append("rect")
 // Per-type markers, as they don't inherit styles.
 svg.append("defs").selectAll("marker")
     .data(["transition"])
-  .enter().append("marker")  // Removing the arrowhead
+  .enter().append("marker")  // the arrowhead
     .attr("id", function(d) { return d; })
     .attr("viewBox", "0 -5 10 10")
     .attr("refX", 15)
@@ -170,8 +187,8 @@ var circle = svg.append("g").selectAll("circle")
 var text = svg.append("g").selectAll("text")
     .data(force.nodes())
   .enter().append("text")
-    .attr("x", 8)
-    .attr("y", ".31em")
+    .attr("x", -20)
+    .attr("y", -16)//".31em")
     .text(function(d) { return d.name; });
 
 // Use elliptical arc path segments to doubly-encode directionality.
