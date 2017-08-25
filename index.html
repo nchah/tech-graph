@@ -37,7 +37,7 @@ circle {
 
 text {
   font: 10px monospace;
-  font-weight: bold;
+  /*font-weight: bold;*/
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
@@ -46,6 +46,7 @@ text {
 
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- <script type="text/javascript" src="js/d3.js"></script> -->
 <script>
 
 // Data from:
@@ -60,8 +61,8 @@ var links = [
   {source: "", target: "Apple", img: "images/apple.png"},
   {source: "", target: "Yahoo", img: "images/yahoo.png"},
 
-  {source: "", target: "Search Eng.", img: ""},
-  {source: "", target: "Email", img: ""},
+  // {source: "", target: "Search Eng.", img: ""},
+  // {source: "", target: "Email", img: ""},
 
   {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
   {source: "Hotmail", target: "Outlook", type: "transition", img: "images/outlook.png"},
@@ -85,19 +86,45 @@ var links = [
   {source: "Amazon", target: "Kindle", type: "hardware"},
 
   {source: "Alphabet", target: "Nest", type: "acquisition", img:"images/nest.png"},
-  {source: "Alphabet", target: "Calico", type: "acquisition", img:"images/calico.png" },
-  {source: "Alphabet", target: "Google", type: "acquisition", img: "images/google2.png"},
-  {source: "Alphabet", target: "DeepMind", type: "acquisition", img: ""},
-  {source: "Alphabet", target: "X", type: "acquisition", img: ""},
-  {source: "Google", target: "Google Maps", type: "acquisition", img: "images/google-maps.png"},
+  {source: "Alphabet", target: "Calico", type: "main", img:"images/calico.png" },
+  {source: "Alphabet", target: "Google", type: "main", img: "images/google2.png"},
+  {source: "Alphabet", target: "DeepMind", type: "acquisition", img: "images/deepmind.png"},
+  {source: "Alphabet", target: "X", type: "main", img: "images/x.png"},
+  {source: "Alphabet", target: "Waymo", type: "main", img: "images/waymo.png"},
+  {source: "Alphabet", target: "Access", type: "main", img: "images/access.png"},
+  {source: "Alphabet", target: "GV", type: "main", img: "images/gv.png"},
+  {source: "Alphabet", target: "Jigsaw", type: "main", img: "images/jigsaw.png"},
+  {source: "Alphabet", target: "Verily", type: "main", img: "images/verily.png"},
+  {source: "Google", target: "Maps", type: "acquisition", img: "images/google-maps.png"},
   {source: "Google", target: "Search", type: "main", img: "images/google2.png"},
+  {source: "Google", target: "Ads", type: "main", img: "images/google2.png"},
   {source: "Google", target: "Gmail", type: "main", img: "images/gmail.png"},
   {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
   {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
-  {source: "Google", target: "G Suite", type: "acquisition"},
-  {source: "Google", target: "Android", type: "acquisition", img:"images/android.png"},
+  {source: "Google", target: "Cloud", type: "main", img: "images/google-cloud.png"},
+  {source: "Google", target: "Android", type: "acquisition", img: "images/android.png"},  
+  {source: "Google", target: "Keep", type: "main", img: "images/google-keep.png"},
+  {source: "Android", target: "Assistant", type: "main", img: "images/google-assistant.png"},
+  {source: "Android", target: "Cardboard", type: "main", img: "images/google-cardboard.png"},
+  {source: "Android", target: "Daydream", type: "main", img: "images/google-daydream.png"},
+  {source: "Android", target: "Nexus", type: "hardware", img: "images/nexus.png"},
+  {source: "Android", target: "Pixel", type: "hardware", img: "images/pixel.png"},
+  {source: "Maps", target: "Earth", type: "main", img: "images/google-earth.png"},
+  {source: "Chrome", target: "Chromium", type: "main", img: "images/chromium.png"},
+  {source: "Chrome", target: "Chrome OS", type: "main", img: "images/chrome.png"},
+  {source: "Chrome", target: "Chromebook", type: "hardware", img: "images/chrome.png"},
+  {source: "Chrome", target: "Chromecast", type: "hardware", img: "images/chrome.png"},
+  {source: "Cloud", target: "GCP", type: "main", img: "images/google-cloud.png"},
+  {source: "Cloud", target: "G Suite", type: "main", img: "images/gsuite.png"},
+  {source: "DeepMind", target: "AlphaGo", type: "main", img: "images/alphago.png"},
+  {source: "X", target: "Loon", type: "main", img: "images/x.png"},
+  {source: "X", target: "Glass", type: "main", img: "images/glass.png"},
+  {source: "Nest", target: "Thermostat", type: "main", img: "images/nest.png"},
+  {source: "Nest", target: "Dropcam", type: "acquisition", img: "images/dropcam.png"},
+  {source: "Dropcam", target: "Nest Cam", type: "transition", img: "images/nest.png"},
+  {source: "Access", target: "Google Fiber", type: "main", img: "images/google-fiber.png"},
 
-  {source: "Apple", target: "Siri", type: "acquisition", img:"images/siri.png"},
+  {source: "Apple", target: "Siri", type: "acquisition", img: "images/siri.png"},
   {source: "Apple", target: "Apple Maps", type: "main"},
   {source: "Apple", target: "iTunes", type: "main"},
   {source: "Apple", target: "iPod", type: "hardware"},
@@ -107,16 +134,16 @@ var links = [
   {source: "Apple", target: "Watch", type: "hardware"},
   {source: "Apple", target: "TV", type: "hardware"},
 
-  {source: "Yahoo", target: "Yahoo Search", type: "main", img:"images/yahoo.png"},
-  {source: "Yahoo", target: "Yahoo Mail", type: "main", img:"images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
 
   // {source: "Gmail", target: "Email", type: "competitor"},
   // {source: "Outlook", target: "Email", type: "competitor"},
   // {source: "Yahoo Mail", target: "Email", type: "competitor"},
 
-  {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
-  {source: "Bing", target: "Search Eng.", type: "competitor"},
-  {source: "Search", target: "Search Eng.", type: "competitor"},
+  // {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
+  // {source: "Bing", target: "Search Eng.", type: "competitor"},
+  // {source: "Search", target: "Search Eng.", type: "competitor"},
 ];
 
 var nodes = {};
@@ -200,19 +227,20 @@ var text = svg.append("g").selectAll("text")
     .data(force.nodes())
   .enter().append("text")
     .attr("x", -20)
-    .attr("y", -16)//".31em")
+    .attr("y", -16) //".31em")
     .text(function(d) { return d.name; });
 
 // Use elliptical arc path segments to doubly-encode directionality.
 function tick() {
   path.attr("d", linkArc);
   circle.attr("transform", transform);
-  text.attr("transform", transform);
+  text.attr("transform", transform);  // The text labels for each node
 }
 
 function linkArc(d) {
   var dx = d.target.x - d.source.x,
       dy = d.target.y - d.source.y,
+      // The original code for the elliptical arcs - maybe re-use one day
       // dr = Math.sqrt(dx * dx + dy * dy);
       dr = 0;
   return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
