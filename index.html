@@ -58,6 +58,10 @@ var links = [
   {source: "", target: "Alphabet", img: "images/alphabet.png"},
   {source: "", target: "Amazon", img: "images/amazon.png"},
   {source: "", target: "Apple", img: "images/apple.png"},
+  {source: "", target: "Yahoo", img: "images/yahoo.png"},
+
+  {source: "", target: "Search Eng.", img: ""},
+  {source: "", target: "Email", img: ""},
 
   {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
   {source: "Hotmail", target: "Outlook", type: "transition", img: "images/outlook.png"},
@@ -87,8 +91,8 @@ var links = [
   {source: "Alphabet", target: "X", type: "acquisition", img: ""},
   {source: "Google", target: "Google Maps", type: "acquisition", img: "images/google-maps.png"},
   {source: "Google", target: "Search", type: "main", img: "images/google2.png"},
-  {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
   {source: "Google", target: "Gmail", type: "main", img: "images/gmail.png"},
+  {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
   {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
   {source: "Google", target: "G Suite", type: "acquisition"},
   {source: "Google", target: "Android", type: "acquisition", img:"images/android.png"},
@@ -103,8 +107,16 @@ var links = [
   {source: "Apple", target: "Watch", type: "hardware"},
   {source: "Apple", target: "TV", type: "hardware"},
 
-  {source: "Gmail", target: "Outlook", type: "competitor"},
-  {source: "Bing", target: "Search", type: "competitor"},
+  {source: "Yahoo", target: "Yahoo Search", type: "main", img:"images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo Mail", type: "main", img:"images/yahoo.png"},
+
+  // {source: "Gmail", target: "Email", type: "competitor"},
+  // {source: "Outlook", target: "Email", type: "competitor"},
+  // {source: "Yahoo Mail", target: "Email", type: "competitor"},
+
+  {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
+  {source: "Bing", target: "Search Eng.", type: "competitor"},
+  {source: "Search", target: "Search Eng.", type: "competitor"},
 ];
 
 var nodes = {};
