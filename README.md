@@ -30,6 +30,10 @@ The images used in the graph visualization were collected from various web sourc
 
 
 
+## Interesting Findings
+
+- Both Google and Apple have applications named 'Photos'.
+
 
 
 

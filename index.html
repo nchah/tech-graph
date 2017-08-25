@@ -11,6 +11,8 @@
 
 .link.main {
   stroke: green;
+  stroke-linecap: butt;
+  stroke-opacity: 0.5;
 }
 
 .link.acquisition {
@@ -23,6 +25,12 @@
 
 .link.hardware {
   stroke: purple;
+  stroke-opacity: 0.5;
+}
+
+.link.research {
+  stroke: blue;
+  stroke-opacity: 0.5;
 }
 
 .link.competitor {
@@ -39,7 +47,7 @@ text {
   font: 10px monospace;
   /*font-weight: bold;*/
   pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  /*text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;*/
 }
 
 </style>
@@ -61,8 +69,18 @@ var links = [
   {source: "", target: "Apple", img: "images/apple.png"},
   {source: "", target: "Yahoo", img: "images/yahoo.png"},
 
+  // Competing categories
   // {source: "", target: "Search Eng.", img: ""},
   // {source: "", target: "Email", img: ""},
+  // {source: "", target: "Web Browsers", img: ""},
+
+  // {source: "Gmail", target: "Email", type: "competitor"},
+  // {source: "Outlook", target: "Email", type: "competitor"},
+  // {source: "Yahoo Mail", target: "Email", type: "competitor"},
+
+  // {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
+  // {source: "Bing", target: "Search Eng.", type: "competitor"},
+  // {source: "Search", target: "Search Eng.", type: "competitor"},
 
   {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
   {source: "Hotmail", target: "Outlook", type: "transition", img: "images/outlook.png"},
@@ -75,6 +93,7 @@ var links = [
   {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
   {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
   {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Facebook", target: "FAIR", type: "research"},
 
   {source: "Amazon", target: "Amazon.com", type: "main"},
   {source: "Amazon", target: "AWS", type: "main"},
@@ -87,7 +106,7 @@ var links = [
 
   {source: "Alphabet", target: "Nest", type: "acquisition", img:"images/nest.png"},
   {source: "Alphabet", target: "Calico", type: "main", img:"images/calico.png" },
-  {source: "Alphabet", target: "Google", type: "main", img: "images/google2.png"},
+  {source: "Alphabet", target: "Google", type: "main", img: "images/google.png"},
   {source: "Alphabet", target: "DeepMind", type: "acquisition", img: "images/deepmind.png"},
   {source: "Alphabet", target: "X", type: "main", img: "images/x.png"},
   {source: "Alphabet", target: "Waymo", type: "main", img: "images/waymo.png"},
@@ -95,15 +114,22 @@ var links = [
   {source: "Alphabet", target: "GV", type: "main", img: "images/gv.png"},
   {source: "Alphabet", target: "Jigsaw", type: "main", img: "images/jigsaw.png"},
   {source: "Alphabet", target: "Verily", type: "main", img: "images/verily.png"},
+  {source: "Google", target: "Go", type: "main", img: "images/google-go.png"},
+  {source: "Google", target: "Dart", type: "main", img: "images/google-dart.png"},
   {source: "Google", target: "Maps", type: "acquisition", img: "images/google-maps.png"},
-  {source: "Google", target: "Search", type: "main", img: "images/google2.png"},
-  {source: "Google", target: "Ads", type: "main", img: "images/google2.png"},
+  {source: "Google", target: "Search", type: "main", img: "images/google.png"},
+  {source: "Google", target: "Ads", type: "main", img: "images/google.png"},
   {source: "Google", target: "Gmail", type: "main", img: "images/gmail.png"},
   {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
   {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
   {source: "Google", target: "Cloud", type: "main", img: "images/google-cloud.png"},
   {source: "Google", target: "Android", type: "acquisition", img: "images/android.png"},  
   {source: "Google", target: "Keep", type: "main", img: "images/google-keep.png"},
+  {source: "Google", target: "Google Photos", type: "main", img: "images/google-photos.png"},
+  {source: "Google", target: "Google+", type: "main", img: "images/google-plus.png"},
+  {source: "Google", target: "Blogger", type: "main", img: "images/blogger.png"},
+  {source: "Google", target: "Brain", type: "research", img: "images/google.png"},
+  {source: "Android", target: "Play", type: "main", img: "images/google-play.png"},
   {source: "Android", target: "Assistant", type: "main", img: "images/google-assistant.png"},
   {source: "Android", target: "Cardboard", type: "main", img: "images/google-cardboard.png"},
   {source: "Android", target: "Daydream", type: "main", img: "images/google-daydream.png"},
@@ -115,6 +141,7 @@ var links = [
   {source: "Chrome", target: "Chromebook", type: "hardware", img: "images/chrome.png"},
   {source: "Chrome", target: "Chromecast", type: "hardware", img: "images/chrome.png"},
   {source: "Cloud", target: "GCP", type: "main", img: "images/google-cloud.png"},
+  {source: "Cloud", target: "Drive", type: "main", img: "images/google-drive.png"},
   {source: "Cloud", target: "G Suite", type: "main", img: "images/gsuite.png"},
   {source: "DeepMind", target: "AlphaGo", type: "main", img: "images/alphago.png"},
   {source: "X", target: "Loon", type: "main", img: "images/x.png"},
@@ -125,25 +152,49 @@ var links = [
   {source: "Access", target: "Google Fiber", type: "main", img: "images/google-fiber.png"},
 
   {source: "Apple", target: "Siri", type: "acquisition", img: "images/siri.png"},
-  {source: "Apple", target: "Apple Maps", type: "main"},
-  {source: "Apple", target: "iTunes", type: "main"},
-  {source: "Apple", target: "iPod", type: "hardware"},
-  {source: "Apple", target: "iPhone", type: "hardware"},
-  {source: "Apple", target: "iPad", type: "hardware"},
-  {source: "Apple", target: "Mac", type: "hardware"},
-  {source: "Apple", target: "Watch", type: "hardware"},
-  {source: "Apple", target: "TV", type: "hardware"},
+  {source: "Apple", target: "Swfit", type: "main", img: "images/apple-swift.png"},
+  {source: "Apple", target: "Music", type: "main", img: "images/apple.png"},
+  {source: "Apple", target: "Apps", type: "main", img: "images/apple.png"},
+  {source: "Apps", target: "Apple Maps", type: "main", img: "images/apple-maps.png"},
+  {source: "Apps", target: "iCloud", type: "main", img:"images/apple-icloud.png"},
+  {source: "Apps", target: "iWork", type: "main", img:"images/apple-iwork.png"},
+  {source: "iWork", target: "Keynote", type: "main", img:"images/apple-keynote.png"},
+  {source: "iWork", target: "Pages", type: "main", img:"images/apple-pages.png"},
+  {source: "iWork", target: "Numbers", type: "main", img:"images/apple-numbers.png"},
+  {source: "Apps", target: "iLife", type: "main", img:"images/apple.png"},
+  {source: "iLife", target: "GarageBand", type: "main", img:"images/apple-garageband.png"},
+  {source: "iLife", target: "iMovie", type: "main", img:"images/apple-imovie.png"},
+  {source: "Apps", target: "iTunes", type: "main", img:"images/apple-itunes.png"},
+  {source: "Apps", target: "Safari", type: "main", img:"images/safari.png"},
+  {source: "Apps", target: "Apple Photos", type: "main", img:"images/apple-photos.png"},
+  {source: "Apps", target: "Messages", type: "main", img:"images/apple-messages.png"},
+  {source: "Apps", target: "Mail", type: "main", img:"images/apple-mail.png"},
+
+  {source: "Apple", target: "tvOS", type: "main", img:"images/apple-tv.png"},
+  {source: "tvOS", target: "TV", type: "hardware", img:"images/apple-tv.png"},
+  {source: "Apple", target: "watchOS", type: "main", img:"images/apple-watch.png"},
+  {source: "watchOS", target: "Watch", type: "hardware", img:"images/apple-watch.png"},
+  {source: "Apple", target: "iOS", type: "main", img:"images/apple-ios.png"},
+  {source: "iOS", target: "iPhone", type: "hardware", img:"images/apple.png"},
+  {source: "iOS", target: "iPad", type: "hardware", img:"images/apple-ipad.png"},
+  {source: "iPad", target: "Air", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iPad", target: "Mini", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iPad", target: "Pro", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iOS", target: "iPod", type: "hardware", img:"images/apple.png"},
+  {source: "iPod", target: "Touch", type: "hardware", img: "images/apple.png"},
+  {source: "iPod", target: "Nano", type: "hardware", img: "images/apple.png"},
+  {source: "iPod", target: "Shuffle", type: "hardware", img: "images/apple.png"},
+  {source: "Apple", target: "macOS", type: "main", img:"images/apple-macos.png"},
+  {source: "macOS", target: "Mac", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "iMac", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "Mac Mini", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook Pro", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook Air", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "Mac Pro", type: "hardware", img: "images/apple.png"},
 
   {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
   {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
-
-  // {source: "Gmail", target: "Email", type: "competitor"},
-  // {source: "Outlook", target: "Email", type: "competitor"},
-  // {source: "Yahoo Mail", target: "Email", type: "competitor"},
-
-  // {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
-  // {source: "Bing", target: "Search Eng.", type: "competitor"},
-  // {source: "Search", target: "Search Eng.", type: "competitor"},
 ];
 
 var nodes = {};
