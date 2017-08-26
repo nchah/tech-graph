@@ -92,8 +92,11 @@ var links = [
   {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
   {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
   {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
+  {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
   {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Facebook", target: "FAIR", type: "research"},
+  {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
+  {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"},
 
   {source: "Amazon", target: "Whole Foods", type: "acquisition", img: "images/whole-foods.png"},
   {source: "Amazon", target: "IMDb", type: "acquisition", img: "images/imdb.png"},
@@ -134,6 +137,7 @@ var links = [
   {source: "Alphabet", target: "Verily", type: "main", img: "images/verily.png"},
   {source: "Google", target: "Go", type: "main", img: "images/google-go.png"},
   {source: "Google", target: "Dart", type: "main", img: "images/google-dart.png"},
+  {source: "Google", target: "AngularJS", type: "main", img: "images/google-angular.png"},
   {source: "Google", target: "Maps", type: "acquisition", img: "images/google-maps.png"},
   {source: "Google", target: "Search", type: "main", img: "images/google.png"},
   {source: "Google", target: "Ads", type: "main", img: "images/google.png"},
@@ -239,8 +243,8 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
-    .charge(-300)
+    .linkDistance(70)
+    .charge(-250)
     .on("tick", tick)
     .start();
 
@@ -275,6 +279,7 @@ var path = svg.append("g").selectAll("path")
     .data(force.links())
   .enter().append("path")
     .attr("class", function(d) { return "link " + d.type; })
+    // .attr("linkDistance", function(d) { return 1; })
     .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
 
 // var circle = svg.append("g").selectAll("circle")
