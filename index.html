@@ -60,8 +60,11 @@ text {
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <!-- <script type="text/javascript" src="js/d3.js"></script> -->
-<script>
 
+<div id="mainDiv" style="text-align:center;">
+<svg id="visualization" style="text-align:center;">
+
+<script>
 // Data from:
 // https://en.wikipedia.org/wiki/List_of_mergers_and_acquisitions_by_Microsoft#Key_acquisitions
 // https://en.wikipedia.org/wiki/List_of_mergers_and_acquisitions_by_Facebook
@@ -307,19 +310,20 @@ var force = d3.layout.force()
     .on("tick", tick)
     .start();
 
-var svg = d3.select("body").append("svg")
+// var svg = d3.select("body").append("svg")
+var svg = d3.select("#visualization")
     .attr("width", width)
     .attr("height", height);
 
 // Add a border around the visualization box
-// var borderPath = svg.append("rect")
-//    			.attr("x", 0)
-//    			.attr("y", 0)
-//    			.attr("height", height)
-//    			.attr("width", width)
-//    			.style("stroke", "blue")
-//    			.style("fill", "none")
-//    			.style("stroke-width", 1);
+var borderPath = svg.append("rect")
+   			.attr("x", 0)
+   			.attr("y", 0)
+   			.attr("height", height)
+   			.attr("width", width)
+   			.style("stroke", "blue")
+   			.style("fill", "none")
+   			.style("stroke-width", 1);
 
 // Per-type markers, as they don't inherit styles.
 svg.append("defs").selectAll("marker")
@@ -386,8 +390,9 @@ function transform(d) {
 }
 
 </script>
-<div>
 
+
+<div>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
   <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
   <span class="mdl-checkbox__label">Checkbox</span>
@@ -397,7 +402,7 @@ function transform(d) {
 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
   Button
 </button>
-
 </div>
 
+</div>
 </body>
