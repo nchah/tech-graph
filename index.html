@@ -126,14 +126,14 @@ var links = [
   // {source: "Microsoft", target: "Internet Explorer", type: "main", img: "images/microsoft-ie.png"},
   // {source: "Internet Explorer", target: "Edge", type: "transition", img: "images/microsoft-edge.png"},
 
-  {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
-  {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
-  {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
-  {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
-  {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
-  {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"},
+  // {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
+  // {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
+  // {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
+  // {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
+  // {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
+  // {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
+  // {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
+  // {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"},
 
   // {source: "Amazon", target: "Whole Foods", type: "acquisition", img: "images/whole-foods.png"},
   // {source: "Amazon", target: "IMDb", type: "acquisition", img: "images/imdb.png"},
@@ -256,6 +256,10 @@ var links = [
   {source: "Verizon", target: "Yahoo", type: "acquisition", img: "images/yahoo.png"},
   {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
   {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Flickr", type: "acquisition", img: "images/flickr.png"},
+  {source: "Yahoo", target: "Yahoo Sports", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo News", type: "main", img: "images/yahoo-news.png"},
+  {source: "Yahoo", target: "Yahoo Music", type: "main", img: "images/yahoo-music.png"},
 
   {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
   {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
@@ -305,7 +309,7 @@ var borderPath = svg.append("rect")
 
 // Per-type markers, as they don't inherit styles.
 svg.append("defs").selectAll("marker")
-    .data(["transition"])
+    .data(["transition", "acquisition"])
   .enter().append("marker")  // the arrowhead
     .attr("id", function(d) { return d; })
     .attr("viewBox", "0 -5 10 10")
