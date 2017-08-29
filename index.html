@@ -51,6 +51,12 @@ text {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
+#inner {
+  display: table;
+  margin: 0 auto;
+
+}
+
 </style>
 
 <body>
@@ -391,17 +397,20 @@ function transform(d) {
 
 </script>
 
-
-<div>
+<div id="inner">
+Companies
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
   <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
   <span class="mdl-checkbox__label">Checkbox</span>
 </label>
-
-<!-- Accent-colored raised button with ripple -->
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-  Button
-</button>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Checkbox</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
+  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Checkbox</span>
+</label>
 </div>
 
 </div>
