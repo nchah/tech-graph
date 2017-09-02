@@ -385,12 +385,12 @@ function draw(checks) {
     link.target = nodes[link.target] || (nodes[link.target] = {name: link.target, img: link.img});
   });
   // workaround to let subclusters be unlinked
-  var delCount = 0;
-  for (var i = 0; i < links.length; ++i) {
-    if (links[i]["source"]["name"] == "")
-      delCount++;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].source.name == "") {
+      links.splice(i, 1);
+    }
   }
-  links.splice(0, delCount);
+
   var width = 1000,
       height = 600;
   var force = d3.layout.force()
