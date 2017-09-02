@@ -2,7 +2,6 @@
  <!-- Adapted from http://bl.ocks.org/mbostock/1153292 -->
 <meta charset="utf-8">
 <style>
-
 .link {
   fill: none;
   stroke: silver;
@@ -58,7 +57,6 @@ text {
   /*margin: 0 auto;*/
   padding: 10;
 }
-
 </style>
 
 <body>
@@ -70,7 +68,7 @@ text {
 <!-- <script type="text/javascript" src="js/d3.js"></script> -->
 
 <div id="mainDiv" style="text-align:center;">
-<svg id="visualization" style="text-align:center;">
+<svg id="visualization" style="text-align:center;"></svg>
 
 <div>
 <br>
@@ -105,187 +103,26 @@ text {
   <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" >
   <span class="mdl-checkbox__label">Yahoo</span>
 </label>
-</div>  
+</div>
 
 <script>
+// Competing categories
+var competitors = [
+  {source: "", target: "Search Eng.", img: ""},
+  {source: "", target: "Email", img: ""},
+  {source: "", target: "Web Browsers", img: ""},
 
-var all_links = [
-  {source: "", target: "Microsoft", img: "images/microsoft.png"},
-  {source: "", target: "Facebook", img: "images/facebook.png"},
-  {source: "", target: "Alphabet", img: "images/alphabet.png"},
-  {source: "", target: "Amazon", img: "images/amazon.png"},
-  {source: "", target: "Apple", img: "images/apple.png"},
-  {source: "", target: "Verizon", img: "images/verizon.png"},
-  {source: "", target: "IBM", img: "images/ibm.png"}
-];
+  {source: "Gmail", target: "Email", type: "competitor"},
+  {source: "Outlook", target: "Email", type: "competitor"},
+  {source: "Yahoo Mail", target: "Email", type: "competitor"},
 
-  // Competing categories
-  // {source: "", target: "Search Eng.", img: ""},
-  // {source: "", target: "Email", img: ""},
-  // {source: "", target: "Web Browsers", img: ""},
-
-  // {source: "Gmail", target: "Email", type: "competitor"},
-  // {source: "Outlook", target: "Email", type: "competitor"},
-  // {source: "Yahoo Mail", target: "Email", type: "competitor"},
-
-  // {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
-  // {source: "Bing", target: "Search Eng.", type: "competitor"},
-  // {source: "Search", target: "Search Eng.", type: "competitor"},
-
-var microsoft = [
-  {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
-  {source: "Hotmail", target: "Outlook.com", type: "transition", img: "images/outlook.png"},
-  {source: "Microsoft", target: "Bing", type: "main", img:"images/bing.png"},
-  {source: "Microsoft", target: "Skype", type: "acquisition", img:"images/skype.png"},
-  {source: "Microsoft", target: "Nokia", type: "acquisition", img: "images/nokia.png"},
-  {source: "Microsoft", target: "Linkedin", type: "acquisition", img: "images/linkedin.png"},
-  {source: "Microsoft", target: "SQL Server", type: "main", img: "images/microsoft-sqlserver.png"},
-  {source: "Microsoft", target: "Windows", type: "main", img:"images/windows.png"},
-  {source: "Windows", target: "Cortana", type: "main", img:"images/microsoft-cortana.png"},
-  {source: "Windows", target: "HoloLens", type: "hardware", img:"images/microsoft-hololens.png"},
-  {source: "Windows", target: "Surface", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface Pro", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface Laptop", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface Book", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface Studio", type: "hardware", img:"images/microsoft.png"},
-  {source: "Surface", target: "Surface Hub", type: "hardware", img:"images/microsoft.png"},
-  {source: "Windows", target: "Xbox OS", type: "main", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox 360", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox One", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox One X", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Windows", target: "Mobile", type: "main", img:"images/windows.png"},
-  {source: "Mobile", target: "Lumia", type: "hardware", img:"images/windows-lumia.png"},
-  {source: "Microsoft", target: "Azure", type: "main", img: "images/microsoft-azure.png"},
-  {source: "Microsoft", target: "SharePoint", type: "main", img: "images/microsoft-sharepoint.png"},
-  {source: "Microsoft", target: "Office", type: "main", img: "images/microsoft-office.png"},
-  {source: "Office", target: "Word", type: "main", img: "images/microsoft-word.png"},
-  {source: "Office", target: "Excel", type: "main", img: "images/microsoft-excel.png"},
-  {source: "Office", target: "PowerPoint", type: "main", img: "images/microsoft-powerpoint.png"},
-  {source: "Office", target: "Outlook", type: "main", img: "images/microsoft-outlook.png"},
-  {source: "Office", target: "Microsoft Access", type: "main", img: "images/microsoft-access.png"},
-  {source: "Office", target: "OneNote", type: "main", img: "images/microsoft-onenote.png"},
-  {source: "Office", target: "Publisher", type: "main", img: "images/microsoft-publisher.png"},
-  {source: "Microsoft", target: "Research", type: "research", img: "images/microsoft.png"},
-  {source: "Microsoft", target: "Maluuba", type: "acquisition", img: "images/maluuba.png"},
-  {source: "Microsoft", target: "OneDrive", type: "main", img: "images/microsoft-onedrive.png"},
-  {source: "Microsoft", target: "OneDrive", type: "main", img: "images/microsoft-onedrive.png"},
-  {source: "Microsoft", target: "Internet Explorer", type: "main", img: "images/microsoft-ie.png"},
-  {source: "Internet Explorer", target: "Edge", type: "transition", img: "images/microsoft-edge.png"}
-];
-
-var facebook = [
-  {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
-  {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
-  {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
-  {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
-  {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
-  {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"}
-];
-
-var amazon = [
-  {source: "Amazon", target: "Whole Foods", type: "acquisition", img: "images/whole-foods.png"},
-  {source: "Amazon", target: "IMDb", type: "acquisition", img: "images/imdb.png"},
-  {source: "Amazon", target: "Audible", type: "acquisition", img: "images/audible.png"},
-  {source: "Amazon", target: "Goodreads", type: "acquisition", img: "images/goodreads.png"},
-  {source: "Amazon", target: "Twitch.tv", type: "acquisition", img: "images/twitch.png"},
-  {source: "Twitch.tv", target: "Curse", type: "acquisition", img: "images/curse.png"},
-  {source: "Amazon", target: "Amazon.com", type: "main", img: "images/amazon.png"},
-  {source: "Amazon.com", target: "AWS", type: "main", img: "images/amazon-aws.png"},
-  {source: "AWS", target: "Cloudfront", type: "main", img: "images/aws-cloudfront.png"},
-  {source: "AWS", target: "DynamoDB", type: "main", img: "images/amazon-aws.png"},
-  {source: "AWS", target: "EBS", type: "main", img: "images/aws-ebs.png"},
-  {source: "AWS", target: "EC2", type: "main", img: "images/aws-ec2.png"},
-  {source: "Amazon.com", target: "Prime", type: "main", img: "images/amazon-prime.png"},
-  {source: "Amazon.com", target: "Alexa", type: "main", img: "images/amazon-alexa.png"},
-  {source: "Amazon.com", target: "Fire OS", type: "main", img: "images/amazon.png"},
-  {source: "Fire OS", target: "Phone", type: "hardware", img: "images/amazon-firephone.png"},
-  {source: "Fire OS", target: "Echo", type: "hardware", img: "images/amazon-echo.png"},
-  {source: "Echo", target: "Dot", type: "hardware", img: "images/amazon-echo.png"},
-  {source: "Echo", target: "Tap", type: "hardware", img: "images/amazon-echo.png"},
-  {source: "Echo", target: "Look", type: "hardware", img: "images/amazon-echo.png"},
-  {source: "Echo", target: "Show", type: "hardware", img: "images/amazon-echo.png"},
-  {source: "Fire OS", target: "Kindle", type: "hardware", img: "images/amazon-kindle.png"},
-  {source: "Fire OS", target: "FireTV", type: "hardware", img: "images/amazon-firetv.png"},
-  {source: "FireTV", target: "Stick", type: "hardware", img: "images/amazon-firetv.png"},
-  {source: "Amazon.com", target: "Video", type: "main", img: "images/amazon-video.png"},
-  {source: "Amazon.com", target: "Amazon Music", type: "main", img: "images/amazon-music.png"}
-];
-
-var apple = [
-  {source: "Apple", target: "Siri", type: "acquisition", img: "images/siri.png"},
-  {source: "Apple", target: "Beats", type: "acquisition", img: "images/beats.png"},
-  {source: "Apple", target: "Swfit", type: "main", img: "images/apple-swift.png"},
-  {source: "Apple", target: "Apple Music", type: "main", img: "images/apple.png"},
-  {source: "Apple", target: "Apps", type: "main", img: "images/apple.png"},
-  {source: "Apps", target: "Apple Maps", type: "main", img: "images/apple-maps.png"},
-  {source: "Apps", target: "iCloud", type: "main", img:"images/apple-icloud.png"},
-  {source: "Apps", target: "iWork", type: "main", img:"images/apple-iwork.png"},
-  {source: "iWork", target: "Keynote", type: "main", img:"images/apple-keynote.png"},
-  {source: "iWork", target: "Pages", type: "main", img:"images/apple-pages.png"},
-  {source: "iWork", target: "Numbers", type: "main", img:"images/apple-numbers.png"},
-  {source: "Apps", target: "iLife", type: "main", img:"images/apple.png"},
-  {source: "iLife", target: "GarageBand", type: "main", img:"images/apple-garageband.png"},
-  {source: "iLife", target: "iMovie", type: "main", img:"images/apple-imovie.png"},
-  {source: "Apps", target: "iTunes", type: "main", img:"images/apple-itunes.png"},
-  {source: "Apps", target: "Safari", type: "main", img:"images/safari.png"},
-  {source: "Apps", target: "Apple Photos", type: "main", img:"images/apple-photos.png"},
-  {source: "Apps", target: "Messages", type: "main", img:"images/apple-messages.png"},
-  {source: "Apps", target: "Mail", type: "main", img:"images/apple-mail.png"},
-  {source: "Apple", target: "tvOS", type: "main", img:"images/apple-tv.png"},
-  {source: "tvOS", target: "TV", type: "hardware", img:"images/apple-tv.png"},
-  {source: "Apple", target: "watchOS", type: "main", img:"images/apple-watch.png"},
-  {source: "watchOS", target: "Watch", type: "hardware", img:"images/apple-watch.png"},
-  {source: "Apple", target: "iOS", type: "main", img:"images/apple-ios.png"},
-  {source: "iOS", target: "iPhone", type: "hardware", img:"images/apple.png"},
-  {source: "iOS", target: "iPad", type: "hardware", img:"images/apple-ipad.png"},
-  {source: "iPad", target: "Air", type: "hardware", img: "images/apple-ipad.png"},
-  {source: "iPad", target: "Mini", type: "hardware", img: "images/apple-ipad.png"},
-  {source: "iPad", target: "Pro", type: "hardware", img: "images/apple-ipad.png"},
-  {source: "iOS", target: "iPod", type: "hardware", img:"images/apple.png"},
-  {source: "iPod", target: "Touch", type: "hardware", img: "images/apple.png"},
-  {source: "iPod", target: "Nano", type: "hardware", img: "images/apple.png"},
-  {source: "iPod", target: "Shuffle", type: "hardware", img: "images/apple.png"},
-  {source: "Apple", target: "macOS", type: "main", img:"images/apple-macos.png"},
-  {source: "macOS", target: "Mac", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "iMac", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "Mac Mini", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "MacBook", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "MacBook Pro", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "MacBook Air", type: "hardware", img: "images/apple.png"},
-  {source: "Mac", target: "Mac Pro", type: "hardware", img: "images/apple.png"}
-];
-
-var yahoo = [
-  {source: "Verizon", target: "Oath Inc.", type: "main", img: "images/oath.png"},
-  {source: "Oath Inc.", target: "Yahoo", type: "acquisition", img: "images/yahoo.png"},
-  {source: "Oath Inc.", target: "AOL", type: "acquisition", img: "images/aol.png"},
-  {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
-  {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
-  {source: "Yahoo", target: "Flickr", type: "acquisition", img: "images/flickr.png"},
-  {source: "Yahoo", target: "Yahoo Sports", type: "main", img: "images/yahoo.png"},
-  {source: "Yahoo", target: "Yahoo News", type: "main", img: "images/yahoo-news.png"},
-  {source: "Yahoo", target: "Yahoo Music", type: "main", img: "images/yahoo-music.png"},
-  {source: "Yahoo", target: "GeoCities", type: "acquisition", img: "images/yahoo.png"}
-];
-
-var ibm = [
-  {source: "IBM", target: "IBM Research", type: "research", img: "images/ibm.png"},
-  {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
-  {source: "IBM", target: "IBM Cloud", type: "main", img: "images/ibm.png"},
-  {source: "IBM Cloud", target: "Bluemix", type: "main", img: "images/ibm-bluemix.png"},
-  {source: "IBM", target: "SPSS", type: "acquisition", img: "images/spss.png"},
-  {source: "IBM", target: "The Weather Company", type: "acquisition", img: "images/weather-company.png"},
-  {source: "IBM", target: "Kenexa", type: "acquisition", img: "images/kenexa.png"},
-  {source: "Kenexa", target: "BrassRing", type: "main", img: "images/kenexa.png"},
-  {source: "IBM", target: "Lotus Notes", type: "acquisition", img: "images/lotus.png"},
-  {source: "Lotus Notes", target: "IBM Notes", type: "transition", img: "images/ibm-notes.png"}
+  {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
+  {source: "Bing", target: "Search Eng.", type: "competitor"},
+  {source: "Search", target: "Search Eng.", type: "competitor"},
 ];
 
 var alphabet = [
+  {source: "", target: "Alphabet", img: "images/alphabet.png"},
   {source: "Alphabet", target: "Nest", type: "acquisition", img: "images/nest.png"},
   {source: "Alphabet", target: "Calico", type: "main", img: "images/calico.png" },
   {source: "Alphabet", target: "Google", type: "main", img: "images/google.png"},
@@ -336,65 +173,211 @@ var alphabet = [
   {source: "Access", target: "Google Fiber", type: "main", img: "images/google-fiber.png"}
 ];
 
+var amazon = [
+  {source: "", target: "Amazon", img: "images/amazon.png"},
+  {source: "Amazon", target: "Whole Foods", type: "acquisition", img: "images/whole-foods.png"},
+  {source: "Amazon", target: "IMDb", type: "acquisition", img: "images/imdb.png"},
+  {source: "Amazon", target: "Audible", type: "acquisition", img: "images/audible.png"},
+  {source: "Amazon", target: "Goodreads", type: "acquisition", img: "images/goodreads.png"},
+  {source: "Amazon", target: "Twitch.tv", type: "acquisition", img: "images/twitch.png"},
+  {source: "Twitch.tv", target: "Curse", type: "acquisition", img: "images/curse.png"},
+  {source: "Amazon", target: "Amazon.com", type: "main", img: "images/amazon.png"},
+  {source: "Amazon.com", target: "AWS", type: "main", img: "images/amazon-aws.png"},
+  {source: "AWS", target: "Cloudfront", type: "main", img: "images/aws-cloudfront.png"},
+  {source: "AWS", target: "DynamoDB", type: "main", img: "images/amazon-aws.png"},
+  {source: "AWS", target: "EBS", type: "main", img: "images/aws-ebs.png"},
+  {source: "AWS", target: "EC2", type: "main", img: "images/aws-ec2.png"},
+  {source: "Amazon.com", target: "Prime", type: "main", img: "images/amazon-prime.png"},
+  {source: "Amazon.com", target: "Alexa", type: "main", img: "images/amazon-alexa.png"},
+  {source: "Amazon.com", target: "Fire OS", type: "main", img: "images/amazon.png"},
+  {source: "Fire OS", target: "Phone", type: "hardware", img: "images/amazon-firephone.png"},
+  {source: "Fire OS", target: "Echo", type: "hardware", img: "images/amazon-echo.png"},
+  {source: "Echo", target: "Dot", type: "hardware", img: "images/amazon-echo.png"},
+  {source: "Echo", target: "Tap", type: "hardware", img: "images/amazon-echo.png"},
+  {source: "Echo", target: "Look", type: "hardware", img: "images/amazon-echo.png"},
+  {source: "Echo", target: "Show", type: "hardware", img: "images/amazon-echo.png"},
+  {source: "Fire OS", target: "Kindle", type: "hardware", img: "images/amazon-kindle.png"},
+  {source: "Fire OS", target: "FireTV", type: "hardware", img: "images/amazon-firetv.png"},
+  {source: "FireTV", target: "Stick", type: "hardware", img: "images/amazon-firetv.png"},
+  {source: "Amazon.com", target: "Video", type: "main", img: "images/amazon-video.png"},
+  {source: "Amazon.com", target: "Amazon Music", type: "main", img: "images/amazon-music.png"}
+];
 
-function a0() {
-  d3.selectAll("svg > *").remove();
-  // d3.select("#visualization").empty();
-  var updated_links = null;
-  var updated_links = [];
-  var updated_links = updated_links.concat(all_links);
+var apple = [
+  {source: "", target: "Apple", img: "images/apple.png"},
+  {source: "Apple", target: "Siri", type: "acquisition", img: "images/siri.png"},
+  {source: "Apple", target: "Beats", type: "acquisition", img: "images/beats.png"},
+  {source: "Apple", target: "Swfit", type: "main", img: "images/apple-swift.png"},
+  {source: "Apple", target: "Apple Music", type: "main", img: "images/apple.png"},
+  {source: "Apple", target: "Apps", type: "main", img: "images/apple.png"},
+  {source: "Apps", target: "Apple Maps", type: "main", img: "images/apple-maps.png"},
+  {source: "Apps", target: "iCloud", type: "main", img:"images/apple-icloud.png"},
+  {source: "Apps", target: "iWork", type: "main", img:"images/apple-iwork.png"},
+  {source: "iWork", target: "Keynote", type: "main", img:"images/apple-keynote.png"},
+  {source: "iWork", target: "Pages", type: "main", img:"images/apple-pages.png"},
+  {source: "iWork", target: "Numbers", type: "main", img:"images/apple-numbers.png"},
+  {source: "Apps", target: "iLife", type: "main", img:"images/apple.png"},
+  {source: "iLife", target: "GarageBand", type: "main", img:"images/apple-garageband.png"},
+  {source: "iLife", target: "iMovie", type: "main", img:"images/apple-imovie.png"},
+  {source: "Apps", target: "iTunes", type: "main", img:"images/apple-itunes.png"},
+  {source: "Apps", target: "Safari", type: "main", img:"images/safari.png"},
+  {source: "Apps", target: "Apple Photos", type: "main", img:"images/apple-photos.png"},
+  {source: "Apps", target: "Messages", type: "main", img:"images/apple-messages.png"},
+  {source: "Apps", target: "Mail", type: "main", img:"images/apple-mail.png"},
+  {source: "Apple", target: "tvOS", type: "main", img:"images/apple-tv.png"},
+  {source: "tvOS", target: "TV", type: "hardware", img:"images/apple-tv.png"},
+  {source: "Apple", target: "watchOS", type: "main", img:"images/apple-watch.png"},
+  {source: "watchOS", target: "Watch", type: "hardware", img:"images/apple-watch.png"},
+  {source: "Apple", target: "iOS", type: "main", img:"images/apple-ios.png"},
+  {source: "iOS", target: "iPhone", type: "hardware", img:"images/apple.png"},
+  {source: "iOS", target: "iPad", type: "hardware", img:"images/apple-ipad.png"},
+  {source: "iPad", target: "Air", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iPad", target: "Mini", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iPad", target: "Pro", type: "hardware", img: "images/apple-ipad.png"},
+  {source: "iOS", target: "iPod", type: "hardware", img:"images/apple.png"},
+  {source: "iPod", target: "Touch", type: "hardware", img: "images/apple.png"},
+  {source: "iPod", target: "Nano", type: "hardware", img: "images/apple.png"},
+  {source: "iPod", target: "Shuffle", type: "hardware", img: "images/apple.png"},
+  {source: "Apple", target: "macOS", type: "main", img:"images/apple-macos.png"},
+  {source: "macOS", target: "Mac", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "iMac", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "Mac Mini", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook Pro", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "MacBook Air", type: "hardware", img: "images/apple.png"},
+  {source: "Mac", target: "Mac Pro", type: "hardware", img: "images/apple.png"}
+];
 
-  var checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+var facebook = [
+  {source: "", target: "Facebook", img: "images/facebook.png"},
+  {source: "Facebook", target: "Instagram", type: "acquisition", img: "images/instagram.png"},
+  {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
+  {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
+  {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
+  {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
+  {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"}
+];
+
+var ibm = [
+  {source: "", target: "IBM", img: "images/ibm.png"},
+  {source: "IBM", target: "IBM Research", type: "research", img: "images/ibm.png"},
+  {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
+  {source: "IBM", target: "IBM Cloud", type: "main", img: "images/ibm.png"},
+  {source: "IBM Cloud", target: "Bluemix", type: "main", img: "images/ibm-bluemix.png"},
+  {source: "IBM", target: "SPSS", type: "acquisition", img: "images/spss.png"},
+  {source: "IBM", target: "The Weather Company", type: "acquisition", img: "images/weather-company.png"},
+  {source: "IBM", target: "Kenexa", type: "acquisition", img: "images/kenexa.png"},
+  {source: "Kenexa", target: "BrassRing", type: "main", img: "images/kenexa.png"},
+  {source: "IBM", target: "Lotus Notes", type: "acquisition", img: "images/lotus.png"},
+  {source: "Lotus Notes", target: "IBM Notes", type: "transition", img: "images/ibm-notes.png"}
+];
+
+var microsoft = [
+  {source: "", target: "Microsoft", img: "images/microsoft.png"},
+  {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
+  {source: "Hotmail", target: "Outlook.com", type: "transition", img: "images/outlook.png"},
+  {source: "Microsoft", target: "Bing", type: "main", img:"images/bing.png"},
+  {source: "Microsoft", target: "Skype", type: "acquisition", img:"images/skype.png"},
+  {source: "Microsoft", target: "Nokia", type: "acquisition", img: "images/nokia.png"},
+  {source: "Microsoft", target: "Linkedin", type: "acquisition", img: "images/linkedin.png"},
+  {source: "Microsoft", target: "SQL Server", type: "main", img: "images/microsoft-sqlserver.png"},
+  {source: "Microsoft", target: "Windows", type: "main", img:"images/windows.png"},
+  {source: "Windows", target: "Cortana", type: "main", img:"images/microsoft-cortana.png"},
+  {source: "Windows", target: "HoloLens", type: "hardware", img:"images/microsoft-hololens.png"},
+  {source: "Windows", target: "Surface", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Pro", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Laptop", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Book", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Studio", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Hub", type: "hardware", img:"images/microsoft.png"},
+  {source: "Windows", target: "Xbox OS", type: "main", img:"images/windows-xbox.png"},
+  {source: "Xbox OS", target: "Xbox", type: "hardware", img:"images/windows-xbox.png"},
+  {source: "Xbox OS", target: "Xbox 360", type: "hardware", img:"images/windows-xbox.png"},
+  {source: "Xbox OS", target: "Xbox One", type: "hardware", img:"images/windows-xbox.png"},
+  {source: "Xbox OS", target: "Xbox One X", type: "hardware", img:"images/windows-xbox.png"},
+  {source: "Windows", target: "Mobile", type: "main", img:"images/windows.png"},
+  {source: "Mobile", target: "Lumia", type: "hardware", img:"images/windows-lumia.png"},
+  {source: "Microsoft", target: "Azure", type: "main", img: "images/microsoft-azure.png"},
+  {source: "Microsoft", target: "SharePoint", type: "main", img: "images/microsoft-sharepoint.png"},
+  {source: "Microsoft", target: "Office", type: "main", img: "images/microsoft-office.png"},
+  {source: "Office", target: "Word", type: "main", img: "images/microsoft-word.png"},
+  {source: "Office", target: "Excel", type: "main", img: "images/microsoft-excel.png"},
+  {source: "Office", target: "PowerPoint", type: "main", img: "images/microsoft-powerpoint.png"},
+  {source: "Office", target: "Outlook", type: "main", img: "images/microsoft-outlook.png"},
+  {source: "Office", target: "Microsoft Access", type: "main", img: "images/microsoft-access.png"},
+  {source: "Office", target: "OneNote", type: "main", img: "images/microsoft-onenote.png"},
+  {source: "Office", target: "Publisher", type: "main", img: "images/microsoft-publisher.png"},
+  {source: "Microsoft", target: "Research", type: "research", img: "images/microsoft.png"},
+  {source: "Microsoft", target: "Maluuba", type: "acquisition", img: "images/maluuba.png"},
+  {source: "Microsoft", target: "OneDrive", type: "main", img: "images/microsoft-onedrive.png"},
+  {source: "Microsoft", target: "OneDrive", type: "main", img: "images/microsoft-onedrive.png"},
+  {source: "Microsoft", target: "Internet Explorer", type: "main", img: "images/microsoft-ie.png"},
+  {source: "Internet Explorer", target: "Edge", type: "transition", img: "images/microsoft-edge.png"}
+];
+
+var yahoo = [
+  {source: "", target: "Verizon", img: "images/verizon.png"},
+  {source: "Verizon", target: "Oath Inc.", type: "main", img: "images/oath.png"},
+  {source: "Oath Inc.", target: "Yahoo", type: "acquisition", img: "images/yahoo.png"},
+  {source: "Oath Inc.", target: "AOL", type: "acquisition", img: "images/aol.png"},
+  {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Flickr", type: "acquisition", img: "images/flickr.png"},
+  {source: "Yahoo", target: "Yahoo Sports", type: "main", img: "images/yahoo.png"},
+  {source: "Yahoo", target: "Yahoo News", type: "main", img: "images/yahoo-news.png"},
+  {source: "Yahoo", target: "Yahoo Music", type: "main", img: "images/yahoo-music.png"},
+  {source: "Yahoo", target: "GeoCities", type: "acquisition", img: "images/yahoo.png"}
+];
+
+
+function a1() {
+  // Remove the existing svg elements
+  d3.selectAll("g > *").remove();
+
+  // Return the checked checkboxes
   var checkedValues = [];
+  var checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
   for (var i=0; checkedBoxes[i]; ++i) {
       if (checkedBoxes[i].checked) {
            checkedValues.push(checkedBoxes[i].value);
       }
   }
-  console.log(checkedValues);
+  if (checkedValues) {
+    draw(checkedValues);
+  }
+};
+
+
+function draw(checks) {
+  var checkedValues = checks;
+  var updated_links = [];
   if (checkedValues.includes('alphabet')) {
-    // var updated_links = updated_links.concat(alphabet);
-    Array.prototype.push.apply(updated_links, alphabet);
+    // Tried .concat(); and Array.prototype.push.apply(); 
+    // but deep copies of the arrays needed after a d3js .remove() call
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(alphabet)));
   }
   if (checkedValues.includes('amazon')) {
-    // var updated_links = updated_links.concat(amazon);
-    Array.prototype.push.apply(updated_links, amazon);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(amazon)));
   }
   if (checkedValues.includes('apple')) {
-    // var updated_links = updated_links.concat(apple);
-    Array.prototype.push.apply(updated_links, apple);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(apple)));
   }
   if (checkedValues.includes('facebook')) {
-    // var updated_links = updated_links.concat(facebook);
-    Array.prototype.push.apply(updated_links, facebook);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(facebook)));
   }
   if (checkedValues.includes('ibm')) {
-    // var updated_links = updated_links.concat(ibm);
-    Array.prototype.push.apply(updated_links, ibm);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(ibm)));
   }
   if (checkedValues.includes('microsoft')) {
-    // var updated_links = updated_links.concat(microsoft);
-    Array.prototype.push.apply(updated_links, microsoft);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(microsoft)));
   }
   if (checkedValues.includes('yahoo')) {
-    // var updated_links = updated_links.concat(yahoo);
-    Array.prototype.push.apply(updated_links, yahoo);
+    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(yahoo)));
   }
-
-  console.log(updated_links);
-  draw(updated_links);
-  // location.reload();
-};  
-
-
-function a1() {
-  location.reload();
-};  
-
-
-function draw(ln) {
-  // location.reload();
-  var links = ln;
+  var links = updated_links;
   var nodes = {};
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
@@ -447,7 +430,6 @@ function draw(ln) {
       .data(force.links())
     .enter().append("path")
       .attr("class", function(d) { return "link " + d.type; })
-      // .attr("linkDistance", function(d) { return 1; })
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
   var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
@@ -485,19 +467,7 @@ function draw(ln) {
 };
 
 // At first display all clusters
-var all_links2 = [];
-var all_links2 = all_links2.concat(all_links);
-var all_links2 = all_links2.concat(alphabet);
-var all_links2 = all_links2.concat(amazon);
-var all_links2 = all_links2.concat(apple);
-var all_links2 = all_links2.concat(facebook);
-var all_links2 = all_links2.concat(ibm);
-var all_links2 = all_links2.concat(microsoft);
-var all_links2 = all_links2.concat(yahoo);
-
-// draw(all_links2);
-
-a0();
+draw(['ibm', 'facebook']);
 
 </script>
 
