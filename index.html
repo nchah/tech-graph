@@ -50,13 +50,6 @@ text {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
-#inner {
-  /*display: table;*/
-  /*display: flex;*/
-  width: 70%;
-  /*margin: 0 auto;*/
-  padding: 10;
-}
 </style>
 
 <body>
@@ -110,32 +103,32 @@ text {
 <span class="mdl-checkbox__label">Competitors</span>
 </div>
 <div style="display:flex; margin:0 auto; width:70%;">
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
-  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
-  <span class="mdl-checkbox__label">Search</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
-  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" checked>
-  <span class="mdl-checkbox__label">Email</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
-  <span class="mdl-checkbox__label">Browsers</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
-  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" checked>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-11" style="display:flex;">
+  <input type="checkbox" id="checkbox-11" class="mdl-checkbox__input" onclick="a1();" value="assistants">
   <span class="mdl-checkbox__label">Assistants</span>
 </label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-10" style="display:flex;">
+  <input type="checkbox" id="checkbox-10" class="mdl-checkbox__input" onclick="a1();" value="browsers">
+  <span class="mdl-checkbox__label">Browsers</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-9" style="display:flex;">
+  <input type="checkbox" id="checkbox-9" class="mdl-checkbox__input" onclick="a1();" value="email">
+  <span class="mdl-checkbox__label">Email</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-8" style="display:flex;">
+  <input type="checkbox" id="checkbox-8" class="mdl-checkbox__input" onclick="a1();" value="search">
+  <span class="mdl-checkbox__label">Search</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-12" style="display:flex;">
+  <input type="checkbox" id="checkbox-12" class="mdl-checkbox__input" onclick="a1();" value="vr">
+  <span class="mdl-checkbox__label">VR/AR</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-13" style="display:flex;">
+  <input type="checkbox" id="checkbox-13" class="mdl-checkbox__input" onclick="a1();" value="">
   <span class="mdl-checkbox__label"></span>
 </label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
-  <span class="mdl-checkbox__label"></span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-14" style="display:flex;">
+  <input type="checkbox" id="checkbox-14" class="mdl-checkbox__input" onclick="a1();" value="">
   <span class="mdl-checkbox__label"></span>
 </label>
 </div>
@@ -143,12 +136,23 @@ text {
 
 
 <script>
-// Competing categories
-var competingBrowsers_ = [
-  {source: "", target: "Web Browsers", img: ""},
+var competingAssistants = [
+  {source: "", target: "Assistants", img: ""},
+  {source: "Siri", target: "Assistants", type: "competitor"},
+  {source: "Assistant", target: "Assistants", type: "competitor"},
+  {source: "Cortana", target: "Assistants", type: "competitor"},
+  {source: "Alexa", target: "Assistants", type: "competitor"},
+  {source: "M", target: "Assistants", type: "competitor"},
   ];
 
-var competingMail = [
+var competingBrowsers = [
+  {source: "", target: "Web Browsers", img: ""},
+  {source: "Chrome", target: "Web Browsers", type: "competitor"},
+  {source: "Edge", target: "Web Browsers", type: "competitor"},
+  {source: "Safari", target: "Web Browsers", type: "competitor"},
+  ];
+
+var competingEmail = [
   {source: "", target: "Email", img: ""},
   {source: "Gmail", target: "Email", type: "competitor"},
   {source: "Outlook", target: "Email", type: "competitor"},
@@ -160,6 +164,14 @@ var competingSearch =[
   {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
   {source: "Bing", target: "Search Eng.", type: "competitor"},
   {source: "Search", target: "Search Eng.", type: "competitor"},
+];
+
+var competingVR =[
+  {source: "", target: "VR/AR", img: ""},
+  {source: "HoloLens", target: "VR/AR", type: "competitor"},
+  {source: "Daydream", target: "VR/AR", type: "competitor"},
+  {source: "Cardboard", target: "VR/AR", type: "competitor"},
+  {source: "Oculus Rift", target: "VR/AR", type: "competitor"},
 ];
 
 var alphabet = [
@@ -181,7 +193,7 @@ var alphabet = [
   {source: "Google", target: "Search", type: "main", img: "images/google.png"},
   {source: "Google", target: "Ads", type: "main", img: "images/google.png"},
   {source: "Google", target: "Gmail", type: "main", img: "images/gmail.png"},
-  {source: "Google", target: "Chrome", type: "main", img: "images/chrome.png"},
+  {source: "Google", target: "Chromium", type: "main", img: "images/chromium.png"},
   {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
   {source: "Google", target: "Cloud", type: "main", img: "images/google-cloud.png"},
   {source: "Google", target: "Android", type: "acquisition", img: "images/android.png"},  
@@ -197,9 +209,9 @@ var alphabet = [
   {source: "Android", target: "Nexus", type: "hardware", img: "images/nexus.png"},
   {source: "Android", target: "Pixel", type: "hardware", img: "images/pixel.png"},
   {source: "Maps", target: "Earth", type: "main", img: "images/google-earth.png"},
-  {source: "Chrome", target: "Chromium", type: "main", img: "images/chromium.png"},
+  {source: "Chromium", target: "Chrome", type: "main", img: "images/chrome.png"},
   {source: "Chrome", target: "Chrome OS", type: "main", img: "images/chrome.png"},
-  {source: "Chrome", target: "Chromebook", type: "hardware", img: "images/chrome.png"},
+  {source: "Chrome OS", target: "Chromebook", type: "hardware", img: "images/chrome.png"},
   {source: "Chrome", target: "Chromecast", type: "hardware", img: "images/chrome.png"},
   {source: "Cloud", target: "GCP", type: "main", img: "images/google-cloud.png"},
   {source: "Cloud", target: "App Engine", type: "main", img: "images/google-appengine.png"},
@@ -394,31 +406,45 @@ function a1() {
 
 function draw(checks) {
   var checkedValues = checks;
-  var updatedLinks = [];
+  var links = [];
+  // Tried .concat(); and Array.prototype.push.apply(); 
+  // but deep copies of the arrays needed after a d3js .remove() call
   if (checkedValues.includes('alphabet')) {
-    // Tried .concat(); and Array.prototype.push.apply(); 
-    // but deep copies of the arrays needed after a d3js .remove() call
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(alphabet)));
+    var links = links.concat(JSON.parse(JSON.stringify(alphabet)));
   }
   if (checkedValues.includes('amazon')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(amazon)));
+    var links = links.concat(JSON.parse(JSON.stringify(amazon)));
   }
   if (checkedValues.includes('apple')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(apple)));
+    var links = links.concat(JSON.parse(JSON.stringify(apple)));
   }
   if (checkedValues.includes('facebook')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(facebook)));
+    var links = links.concat(JSON.parse(JSON.stringify(facebook)));
   }
   if (checkedValues.includes('ibm')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(ibm)));
+    var links = links.concat(JSON.parse(JSON.stringify(ibm)));
   }
   if (checkedValues.includes('microsoft')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(microsoft)));
+    var links = links.concat(JSON.parse(JSON.stringify(microsoft)));
   }
   if (checkedValues.includes('yahoo')) {
-    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(yahoo)));
+    var links = links.concat(JSON.parse(JSON.stringify(yahoo)));
   }
-  var links = updatedLinks;
+  if (checkedValues.includes('assistants')) {
+    var links = links.concat(JSON.parse(JSON.stringify(competingAssistants)));
+  }
+  if (checkedValues.includes('browsers')) {
+    var links = links.concat(JSON.parse(JSON.stringify(competingBrowsers)));
+  }
+  if (checkedValues.includes('email')) {
+    var links = links.concat(JSON.parse(JSON.stringify(competingEmail)));
+  }
+  if (checkedValues.includes('search')) {
+    var links = links.concat(JSON.parse(JSON.stringify(competingSearch)));
+  }
+  if (checkedValues.includes('vr')) {
+    var links = links.concat(JSON.parse(JSON.stringify(competingVR)));
+  }
   var nodes = {};
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
