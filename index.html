@@ -77,31 +77,31 @@ text {
 </div>
 <div style="display:flex; margin:0 auto; width:70%;">
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
-  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" >
+  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" checked>
   <span class="mdl-checkbox__label">Alphabet</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
-  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" >
+  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" checked>
   <span class="mdl-checkbox__label">Amazon</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" >
+  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" checked>
   <span class="mdl-checkbox__label">Apple</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
-  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" >
+  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" checked>
   <span class="mdl-checkbox__label">Facebook</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5" style="display:flex;">
-  <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" >
+  <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" checked>
   <span class="mdl-checkbox__label">IBM</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6" style="display:flex;">
-  <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" >
+  <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" checked>
   <span class="mdl-checkbox__label">Microsoft</span>
 </label>
 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7" style="display:flex;">
-  <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" >
+  <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" checked>
   <span class="mdl-checkbox__label">Yahoo</span>
 </label>
 </div>
@@ -144,15 +144,19 @@ text {
 
 <script>
 // Competing categories
-var competitors = [
-  {source: "", target: "Search Eng.", img: ""},
-  {source: "", target: "Email", img: ""},
+var competingBrowsers_ = [
   {source: "", target: "Web Browsers", img: ""},
+  ];
 
+var competingMail = [
+  {source: "", target: "Email", img: ""},
   {source: "Gmail", target: "Email", type: "competitor"},
   {source: "Outlook", target: "Email", type: "competitor"},
   {source: "Yahoo Mail", target: "Email", type: "competitor"},
+];
 
+var competingSearch =[
+  {source: "", target: "Search Eng.", img: ""},
   {source: "Yahoo Search", target: "Search Eng.", type: "competitor"},
   {source: "Bing", target: "Search Eng.", type: "competitor"},
   {source: "Search", target: "Search Eng.", type: "competitor"},
@@ -390,31 +394,31 @@ function a1() {
 
 function draw(checks) {
   var checkedValues = checks;
-  var updated_links = [];
+  var updatedLinks = [];
   if (checkedValues.includes('alphabet')) {
     // Tried .concat(); and Array.prototype.push.apply(); 
     // but deep copies of the arrays needed after a d3js .remove() call
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(alphabet)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(alphabet)));
   }
   if (checkedValues.includes('amazon')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(amazon)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(amazon)));
   }
   if (checkedValues.includes('apple')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(apple)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(apple)));
   }
   if (checkedValues.includes('facebook')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(facebook)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(facebook)));
   }
   if (checkedValues.includes('ibm')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(ibm)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(ibm)));
   }
   if (checkedValues.includes('microsoft')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(microsoft)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(microsoft)));
   }
   if (checkedValues.includes('yahoo')) {
-    var updated_links = updated_links.concat(JSON.parse(JSON.stringify(yahoo)));
+    var updatedLinks = updatedLinks.concat(JSON.parse(JSON.stringify(yahoo)));
   }
-  var links = updated_links;
+  var links = updatedLinks;
   var nodes = {};
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
@@ -504,7 +508,7 @@ function draw(checks) {
 };
 
 // At first display all clusters
-draw(['ibm', 'facebook']);
+draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo']);
 
 </script>
 
