@@ -18,8 +18,8 @@ View the full interactive graph [here](https://nchah.github.io/tech-graph/).
 ## Background
 
 This graph started as a side project one weekend in response to some recurring observations on the tech landscape.
-1. Acquisitions in tech: A company *X* was acquired by [TECH_GIANT]. Why did they acquire them? How does this impact the [TECH_GIANT]? What else do they own?
-2. Advances in ML/AI: Machine learning and Artificial Intelligence are increasing the spotlight on tech companies and startups. 
+1. *Acquisitions in tech*: A company *X* was acquired by [TECH_GIANT]. Why did they acquire them? How does this impact the [TECH_GIANT]? What else do they own?
+2. *Advances in ML/AI*: Machine learning and Artificial Intelligence are increasing the spotlight on tech companies and startups. 
 
 The first implementation was in Python using the `matplotlib` and `networkx` libraries.
 However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful. For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library. 
