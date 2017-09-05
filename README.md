@@ -21,6 +21,7 @@ View the full interactive graph [here](https://nchah.github.io/tech-graph/).
      * [Yahoo](#yahoo)
   * [Sources](#sources)
 
+
 ## Introduction
 
 This graph started as a side project one weekend in response to some recurring observations I had on the tech landscape.
@@ -42,12 +43,13 @@ The possible use cases can range from the simple to the complex, and are open to
 ## Methodology
 
 The scope of this graph needed to fall into a respectable range that balanced a few trade-offs.
-On one hand, a graph of all acqusitions and products by each major technology company may be comprehensive, but it would require a commensurate amount of time and effort to sort through all the data.
+On one hand, a graph of all acqusitions and products by each major technology company may be comprehensive, but it would require a commensurate amount of time and effort.
 On the other hand, only graphing the most "notable" products and services naturally leads to the question of how notability should be determined.
+This is still a valid concern but it was resolved for now by using Wikipedia as a reference for notability.
 
-Data on the tech products and services was collected from Wikipedia. 
+Most of the information on the tech products and services was collected from Wikipedia. 
 The Navigation Boxes (NavBoxes) were especially helpful as they served as a rough proxy for what products/services were notable enough to have their own Wikipedia page.
-The images used in the graph visualization were collected from various web sources, with many of the company and product logos downloaded from Wikipedia.
+The company and product logos used in the visualization were collected from various web sources, with most from Wikipedia.
 
 The first implementation was in Python using the `matplotlib` and `networkx` libraries.
 However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful. For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library. 
@@ -58,15 +60,15 @@ However, the resulting static pngs didn't have the interactiveness that make som
 It's worth pointing out where this graph fall short.
 
 - Temporality is not represented well in the graph. That is, changes in ownership of companies/products over time are not depicted.
-- As mentioned already, not all products and services offered by a company are shown here.
+- As mentioned already, the graph does not show all products and services offered by a company.
+- (Unintentional) bias will be present in the graph. How and why certain nodes are linked as they are open to discussion. This is similar to the ontological questions in how knowledge is represented in knowledge graphs. 
 
 
 ## The Graph
 
-### Interesting Findings
+### General Findings
 
-- Most tech companies have an AI-assisted assistant in the market. 
-- Both Google and Apple have applications named 'Photos'.
+- Most tech companies have an AI-assisted personal assistant in the market. 
 - 
 
 ### Alphabet
@@ -89,6 +91,9 @@ It's worth pointing out where this graph fall short.
 
 ### Yahoo
 
+
+
+## Roadmap
 
 
 ## Sources
