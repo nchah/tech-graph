@@ -1,141 +1,146 @@
 <!DOCTYPE html>
  <!-- Adapted from http://bl.ocks.org/mbostock/1153292 -->
-<meta charset="utf-8">
-<style>
-.link {
-  fill: none;
-  stroke: silver;
-  stroke-width: 1.5px;
-}
+<head>
+  <meta charset="utf-8">
+  <title>A Graph of Tech</title>
+  <style>
+  .link {
+    fill: none;
+    stroke: silver;
+    stroke-width: 1.5px;
+  }
 
-.link.main {
-  stroke: green;
-  stroke-linecap: butt;
-  stroke-opacity: 0.5;
-}
+  .link.main {
+    stroke: green;
+    stroke-linecap: butt;
+    stroke-opacity: 0.5;
+  }
 
-.link.acquisition {
-  stroke: gold;
-}
+  .link.acquisition {
+    stroke: gold;
+  }
 
-.link.transition {
-  stroke: skyblue;
-}
+  .link.transition {
+    stroke: skyblue;
+  }
 
-.link.hardware {
-  stroke: purple;
-  stroke-opacity: 0.5;
-}
+  .link.hardware {
+    stroke: purple;
+    stroke-opacity: 0.5;
+  }
 
-.link.research {
-  stroke: blue;
-  stroke-opacity: 0.5;
-}
+  .link.research {
+    stroke: blue;
+    stroke-opacity: 0.5;
+  }
 
-.link.competitor {
-  stroke: red;
-  stroke-opacity: 0.5;
-  stroke-dasharray: 0,2 1;
-}
+  .link.competitor {
+    stroke: red;
+    stroke-opacity: 0.5;
+    stroke-dasharray: 0,2 1;
+  }
 
-circle {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 1.5px;
-}
+  circle {
+    fill: #ccc;
+    stroke: #333;
+    stroke-width: 1.5px;
+  }
 
-text {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 10px;
-  /*font-weight: bold;*/
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-}
-
-</style>
-
+  text {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    /*font-weight: bold;*/
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  }
+  </style>
+</head>
 <body>
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<!-- <script type="text/javascript" src="js/tech-graph.js"></script> -->
-<!-- <script type="text/javascript" src="js/d3.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <!-- <script type="text/javascript" src="js/tech-graph.js"></script> -->
+  <!-- <script type="text/javascript" src="js/d3.js"></script> -->
+  
+  <div id="mainDiv" style="text-align:center; ">
+  <svg id="visualization" style="text-align:center;"></svg>
 
-<div id="mainDiv" style="text-align:center; ">
-<svg id="visualization" style="text-align:center;"></svg>
-
-<div>
-  <br>
+  <div>
+    <br>
     <span class="mdl-checkbox__label">Companies</span>
-</div>
-<div style="display:flex; margin:0 auto; width:70%;">
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
-  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" checked>
-  <span class="mdl-checkbox__label">Alphabet</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
-  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" checked>
-  <span class="mdl-checkbox__label">Amazon</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" checked>
-  <span class="mdl-checkbox__label">Apple</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
-  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" checked>
-  <span class="mdl-checkbox__label">Facebook</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5" style="display:flex;">
-  <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" checked>
-  <span class="mdl-checkbox__label">IBM</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6" style="display:flex;">
-  <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" checked>
-  <span class="mdl-checkbox__label">Microsoft</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7" style="display:flex;">
-  <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" checked>
-  <span class="mdl-checkbox__label">Yahoo</span>
-</label>
-</div>
-<div>
-<br>
-<span class="mdl-checkbox__label">Competitors</span>
-</div>
-<div style="display:flex; margin:0 auto; width:70%; font-size:8px;">
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ai" style="display:flex;">
-  <input type="checkbox" id="ai" class="mdl-checkbox__input" onclick="a1();" value="ai">
-  <span class="mdl-checkbox__label">AI/ML Research</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="assistants" style="display:flex;">
-  <input type="checkbox" id="assistants" class="mdl-checkbox__input" onclick="a1();" value="assistants">
-  <span class="mdl-checkbox__label">Assistants</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="browsers" style="display:flex;">
-  <input type="checkbox" id="browsers" class="mdl-checkbox__input" onclick="a1();" value="browsers">
-  <span class="mdl-checkbox__label">Browsers</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="clouds" style="display:flex;">
-  <input type="checkbox" id="clouds" class="mdl-checkbox__input" onclick="a1();" value="clouds">
-  <span class="mdl-checkbox__label">Clouds</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="email" style="display:flex;">
-  <input type="checkbox" id="email" class="mdl-checkbox__input" onclick="a1();" value="email">
-  <span class="mdl-checkbox__label">Email</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="search" style="display:flex;">
-  <input type="checkbox" id="search" class="mdl-checkbox__input" onclick="a1();" value="search">
-  <span class="mdl-checkbox__label">Search</span>
-</label>
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
-  <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
-  <span class="mdl-checkbox__label">VR/AR</span>
-</label>
-</div>
-<br>
-<br>
+  </div>
+  <div style="display:flex; margin:0 auto; width:70%;">
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
+    <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" checked>
+    <span class="mdl-checkbox__label">Alphabet</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
+    <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" checked>
+    <span class="mdl-checkbox__label">Amazon</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
+    <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" checked>
+    <span class="mdl-checkbox__label">Apple</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
+    <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" checked>
+    <span class="mdl-checkbox__label">Facebook</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5" style="display:flex;">
+    <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" checked>
+    <span class="mdl-checkbox__label">IBM</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6" style="display:flex;">
+    <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" checked>
+    <span class="mdl-checkbox__label">Microsoft</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7" style="display:flex;">
+    <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" checked>
+    <span class="mdl-checkbox__label">Yahoo</span>
+  </label>
+  </div>
+  <div>
+    <br>
+    <span class="mdl-checkbox__label">Competitors</span>
+  </div>
+  <div style="display:flex; margin:0 auto; width:70%; font-size:8px;">
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ai" style="display:flex;">
+    <input type="checkbox" id="ai" class="mdl-checkbox__input" onclick="a1();" value="ai">
+    <span class="mdl-checkbox__label">AI/ML Research</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="assistants" style="display:flex;">
+    <input type="checkbox" id="assistants" class="mdl-checkbox__input" onclick="a1();" value="assistants">
+    <span class="mdl-checkbox__label">Assistants</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="browsers" style="display:flex;">
+    <input type="checkbox" id="browsers" class="mdl-checkbox__input" onclick="a1();" value="browsers">
+    <span class="mdl-checkbox__label">Browsers</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="clouds" style="display:flex;">
+    <input type="checkbox" id="clouds" class="mdl-checkbox__input" onclick="a1();" value="clouds">
+    <span class="mdl-checkbox__label">Clouds</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="email" style="display:flex;">
+    <input type="checkbox" id="email" class="mdl-checkbox__input" onclick="a1();" value="email">
+    <span class="mdl-checkbox__label">Email</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="search" style="display:flex;">
+    <input type="checkbox" id="search" class="mdl-checkbox__input" onclick="a1();" value="search">
+    <span class="mdl-checkbox__label">Search</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
+    <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
+    <span class="mdl-checkbox__label">VR/AR</span>
+  </label>
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
+    <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
+    <span class="mdl-checkbox__label">VR/AR</span>
+  </label>
+  </div>
+  <br>
+  <br>
 
 <script>
 var competingAssistants = [
@@ -501,15 +506,15 @@ function draw(checks) {
   var svg = d3.select("#visualization")
       .attr("width", width)
       .attr("height", height);
-  // Add a border around the visualization box
-  var borderPath = svg.append("rect")
-          .attr("x", 0)
-          .attr("y", 0)
-          .attr("height", height)
-          .attr("width", width)
-          .style("stroke", "blue")
-          .style("fill", "none")
-          .style("stroke-width", 1);
+  // // Add a border around the visualization box
+  // var borderPath = svg.append("rect")
+  //         .attr("x", 0)
+  //         .attr("y", 0)
+  //         .attr("height", height)
+  //         .attr("width", width)
+  //         .style("stroke", "blue")
+  //         .style("fill", "none")
+  //         .style("stroke-width", 1);
   // Per-type markers, as they don't inherit styles.
   svg.append("defs").selectAll("marker")
       .data(["transition", "acquisition"])
@@ -529,14 +534,19 @@ function draw(checks) {
       .attr("class", function(d) { return "link " + d.type; })
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
   var circle = svg.append("g").selectAll("circle")
-    .data(force.nodes())
-    .enter().append("image")
-    .attr("xlink:href", function(d) { return d.img; })
-    .attr("x", -16)
-    .attr("y", -16)
-    .attr("width", 32)
-    .attr("height", 32)
-    .call(force.drag);
+      .data(force.nodes())
+    if (true) {
+      circle.enter().append("image")
+      .attr("xlink:href", function(d) { return d.img; })
+    } else {
+      circle.enter().append("circle")
+      .attr("r", 6)
+    }
+    circle.attr("x", -16)
+      .attr("y", -16)
+      .attr("width", 32)
+      .attr("height", 32)
+      .call(force.drag);
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
     .enter().append("text")
@@ -570,3 +580,4 @@ draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo']);
 
 </div>
 </body>
+</html>
