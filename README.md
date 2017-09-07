@@ -3,6 +3,8 @@
 A force-directed graph of notable tech companies, their products, and services.
 View the full interactive graph [here](https://nchah.github.io/tech-graph/).
 
+**Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.**
+
 ![](images/tech-graph.png)
 
 ## Contents
@@ -67,16 +69,26 @@ It's worth pointing out where this graph fall short.
 
 ### General Findings
 
-- Most tech companies have an AI-assisted personal assistant in the market. 
+- Many tech companies have an AI-assisted personal assistant in the market.
 - 
 
 ### Alphabet
 
+- The graph shows Alphabet/Google after it was restructured in 2015. It's quite apparent that Google has the largest product offerings out of the other subsidiaries.
+- Most of the Google products were linked directly to the Google node. There is some branching shown with Android, Chrome, and the Cloud products.
+- It was difficult to find additional nodes to link to some of the other Alphabet subsidiaries like Calico and Jigsaw.
 
 ### Amazon
 
+- There are separate nodes for Amazon and Amazon.com in an attempt to distinguish between the main Amazon products and other subsidiaries, like Whole Foods.
+- With regards to subsidiaries, Amazon have many and they were not all shown here.
+- Amazon Web Services (AWS) offers a large range of products. It was an arbitrary decision to just link to a few of those nodes.
 
 ### Apple
+
+- The Apple graph is structured around the different operating systems that the company maintains. This consistency made it easier to model how Apple software was linked to its various hardware products.
+- There's a separate branch for "Apps". Otherwise, linking them directly to the Apple node made the cluster very crowded and unreadable.
+
 
 
 ### Facebook

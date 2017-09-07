@@ -64,10 +64,22 @@
   <!-- <script type="text/javascript" src="js/tech-graph.js"></script> -->
   <!-- <script type="text/javascript" src="js/d3.js"></script> -->
   
-  <div id="mainDiv" style="text-align:center; ">
+  <div id="mainDiv" style="text-align:center;">
   <svg id="visualization" style="text-align:center;"></svg>
-
   <div>
+    <span style="color:grey; font-style:italic">Disclaimer: All information is presented for informational purposes only. There is no affiliation with any of the companies shown here.</span>
+    <br>
+    Legend:
+    <span style="color:green; opacity: 0.5;"> - main</span>
+    <span style="color:gold;"> - acquisition</span>
+    <span style="color:skyblue;"> - transition</span>
+    <span style="color:purple; opacity: 0.5;"> - hardware</span>
+    <span style="color:blue; opacity: 0.5;"> - research</span>
+    <span style="color:red; opacity: 0.5;"> - competitor/alternative</span>
+    <br>
+    <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="logos" checked>
+    <span class="mdl-checkbox__label">Toggle Logos</span>
+    <br>
     <br>
     <span class="mdl-checkbox__label">Companies</span>
   </div>
@@ -129,10 +141,6 @@
   <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="search" style="display:flex;">
     <input type="checkbox" id="search" class="mdl-checkbox__input" onclick="a1();" value="search">
     <span class="mdl-checkbox__label">Search</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
-    <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
-    <span class="mdl-checkbox__label">VR/AR</span>
   </label>
   <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
     <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
