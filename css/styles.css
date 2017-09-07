@@ -1,0 +1,49 @@
+.link {
+  fill: none;
+  stroke: silver;
+  stroke-width: 1.5px;
+}
+
+.link.main {
+  stroke: green;
+  stroke-linecap: butt;
+  stroke-opacity: 0.5;
+}
+
+.link.acquisition {
+  stroke: gold;
+}
+
+.link.transition {
+  stroke: skyblue;
+}
+
+.link.hardware {
+  stroke: purple;
+  stroke-opacity: 0.5;
+}
+
+.link.research {
+  stroke: blue;
+  stroke-opacity: 0.5;
+}
+
+.link.competitor {
+  stroke: red;
+  stroke-opacity: 0.5;
+  stroke-dasharray: 0,2 1;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+text {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  /*font-weight: bold;*/
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
