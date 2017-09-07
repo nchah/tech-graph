@@ -1,7 +1,7 @@
 # A Graph of Tech
 
 A force-directed graph of notable tech companies, their products, and services.
-View the full interactive graph [here](https://nchah.github.io/tech-graph/).
+View the full interactive graph [**here**](https://nchah.github.io/tech-graph/).
 
 *Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.*
 
@@ -15,7 +15,6 @@ View the full interactive graph [here](https://nchah.github.io/tech-graph/).
   * [Limitations](#limitations)
   * [Roadmap](#roadmap)
   * [The Graph](#the-graph)
-     * [General Findings](#general-findings)
      * [Alphabet](#alphabet)
      * [Amazon](#amazon)
      * [Apple](#apple)
@@ -51,14 +50,16 @@ The Navigation Boxes were especially helpful as they served as a rough proxy for
 The company and product logos in the visualization were collected from various web sources, with the majority coming from Wikipedia.
 
 The first implementation was in Python using the `matplotlib` and `networkx` libraries.
-However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful. For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library. 
+However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful.
+For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library.
+Some of the checkboxes on the page make use of [Material Design Lite](https://github.com/google/material-design-lite) elements.
 
 
 ## Limitations
 
 It's worth pointing out where this graph falls short.
 
-- Currently, only American tech companies are represented in the graph. In future updates, other notable companies should also be added.
+- Currently, only American tech companies are represented in the graph. In future updates, other notable entities will also be added.
 - Temporality is not represented in the graph. That is, changes in ownership of companies/products over time are not depicted here.
 - As mentioned already, the graph does not show all products and services offered by a company.
 - (Unintentional) bias will be present in the graph. How and why certain nodes are linked as they are is certainly open to discussion. This is similar to the ontological questions in how knowledge is represented in knowledge graphs.
@@ -67,7 +68,7 @@ It's worth pointing out where this graph falls short.
 
 There will be occasional updates to reflect real world changes in the tech companies. 
 Pull requests are also welcome.
-Please also feel free to fork this repository if you plan to build alternative versions of this graph.
+Please also feel free to fork this repository if you plan to build alternative versions of this graph. 
 
 
 ## The Graph
