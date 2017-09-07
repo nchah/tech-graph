@@ -13,6 +13,7 @@ View the full interactive graph [here](https://nchah.github.io/tech-graph/).
   * [Introduction](#introduction)
   * [Methodology](#methodology)
   * [Limitations](#limitations)
+  * [Roadmap](#roadmap)
   * [The Graph](#the-graph)
      * [General Findings](#general-findings)
      * [Alphabet](#alphabet)
@@ -22,16 +23,13 @@ View the full interactive graph [here](https://nchah.github.io/tech-graph/).
      * [IBM](#ibm)
      * [Microsoft](#microsoft)
      * [Yahoo](#yahoo)
-  * [Sources](#sources)
 
 
 ## Introduction
 
-This graph started as a side project one weekend in response to some recurring trends I saw in tech.
-(1) Acquisitions in tech are significant.
-A company was acquired by [TECH_GIANT]. Why did they acquire them and what's the impact? What else do they own?
-(2) Recent advances in machine learning and Artificial Intelligence mean there's greater attention on tech companies and startups.
-So it may be worthwhile to map out the various entities that fall under each major tech company.
+This graph started as a side project one weekend in response to some recurring trends I saw with regards to  acquisitions of tech companies and products.
+Upon hearing that a company was acquired by [TECH_GIANT], this would often elicit a common set of questions. Why did they acquire them? What's the impact for that company and other competitors? What else do they own?
+With the a great deal of attention given to tech companies and startups with the recent advances in machine learning and artificial intelligence, it seemed worthwhile to map out the various entities that fall under each major tech company.
 
 This graph can be interpreted on different levels.
 At a surface level, this is a fun and interactive visualization.
@@ -50,7 +48,7 @@ This is still a valid concern but it was resolved for now by using Wikipedia as 
 
 Most of the information used to build the graph was collected from Wikipedia.
 The Navigation Boxes were especially helpful as they served as a rough proxy for what products/services were notable enough to have their own Wikipedia page.
-The company and product logos used in the visualization were collected from various web sources, with most from Wikipedia.
+The company and product logos in the visualization were collected from various web sources, with the majority coming from Wikipedia.
 
 The first implementation was in Python using the `matplotlib` and `networkx` libraries.
 However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful. For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library. 
@@ -58,11 +56,18 @@ However, the resulting static pngs didn't have the interactiveness that make som
 
 ## Limitations
 
-It's worth pointing out where this graph fall short.
+It's worth pointing out where this graph falls short.
 
+- Currently, only American tech companies are represented in the graph. In future updates, other notable companies should also be added.
 - Temporality is not represented in the graph. That is, changes in ownership of companies/products over time are not depicted here.
 - As mentioned already, the graph does not show all products and services offered by a company.
 - (Unintentional) bias will be present in the graph. How and why certain nodes are linked as they are is certainly open to discussion. This is similar to the ontological questions in how knowledge is represented in knowledge graphs.
+
+## Roadmap
+
+There will be occasional updates to reflect real world changes in the tech companies. 
+Pull requests are also welcome.
+Please also feel free to fork this repository if you plan to build alternative versions of this graph.
 
 
 ## The Graph
@@ -105,10 +110,6 @@ Some brief comments on each of the clusters is provided below.
 
 - Yahoo was acquired by Verizon, and this relationship is shown through the link with Oath Inc. Oath Inc. ([Wikipedia](https://en.wikipedia.org/wiki/Oath_Inc.)) is also the parent company for Yahoo, AOL (another early Internet giant), and other tech entities.
 - The rest of Verizon's products and services are not shown in the cluster.
-
-
-## Sources
-
 
 
 
