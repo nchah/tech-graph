@@ -77,8 +77,8 @@
     <span style="color:blue; opacity: 0.5;"> - research</span>
     <span style="color:red; opacity: 0.5;"> - competitor/alternative</span>
     <br>
-    <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="logos" checked>
-    <span class="mdl-checkbox__label">Toggle Logos</span>
+    <input type="checkbox" id="logos" class="mdl-checkbox__input" onclick="a1();" value="showLogos" checked>
+    <span class="mdl-checkbox__label">Show Logos</span>
     <br>
     <br>
     <span class="mdl-checkbox__label">Companies</span>
@@ -238,6 +238,7 @@ var alphabet = [
   {source: "Google", target: "Brain", type: "research", img: "images/google.png"},
   {source: "Android", target: "Play", type: "main", img: "images/google-play.png"},
   {source: "Android", target: "Assistant", type: "main", img: "images/google-assistant.png"},
+  {source: "Assistant", target: "Home", type: "main", img: "images/google-home.png"},
   {source: "Android", target: "Cardboard", type: "main", img: "images/google-cardboard.png"},
   {source: "Android", target: "Daydream", type: "main", img: "images/google-daydream.png"},
   {source: "Android", target: "Nexus", type: "hardware", img: "images/nexus.png"},
@@ -344,7 +345,8 @@ var facebook = [
   {source: "Facebook", target: "WhatsApp", type: "acquisition", img: "images/whatsapp.png"},
   {source: "Facebook", target: "Oculus VR", type: "acquisition", img: "images/oculus.png"},
   {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
-  {source: "Facebook", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Facebook", target: "Facebook.com", type: "main", img: "images/facebook.png"},
+  {source: "Facebook.com", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
   {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
   {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
   {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"}
@@ -352,6 +354,7 @@ var facebook = [
 
 var ibm = [
   {source: "", target: "IBM", img: "images/ibm.png"},
+  {source: "IBM", target: "DB2", type: "main", img: "images/ibm.png"},
   {source: "IBM", target: "IBM Research", type: "research", img: "images/ibm.png"},
   {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
   {source: "IBM", target: "IBM Cloud", type: "main", img: "images/ibm.png"},
@@ -410,9 +413,14 @@ var microsoft = [
 
 var yahoo = [
   {source: "", target: "Verizon", img: "images/verizon.png"},
-  {source: "Verizon", target: "Oath Inc.", type: "main", img: "images/oath.png"},
+  {source: "Verizon", target: "Media and Telematics", type: "main", img: "images/verizon.png"},
+  {source: "Media and Telematics", target: "Oath Inc.", type: "main", img: "images/oath.png"},
   {source: "Oath Inc.", target: "Yahoo", type: "acquisition", img: "images/yahoo.png"},
   {source: "Oath Inc.", target: "AOL", type: "acquisition", img: "images/aol.png"},
+  {source: "Oath Inc.", target: "HuffPost", type: "acquisition", img: "images/huffpost.png"},
+  {source: "Oath Inc.", target: "TechCrunch", type: "acquisition", img: "images/techcrunch.png"},
+  {source: "Oath Inc.", target: "Tumblr", type: "acquisition", img: "images/tumblr.png"},
+  {source: "Oath Inc.", target: "MapQuest", type: "acquisition", img: "images/mapquest.jpg"},
   {source: "Yahoo", target: "Yahoo Search", type: "main", img: "images/yahoo.png"},
   {source: "Yahoo", target: "Yahoo Mail", type: "main", img: "images/yahoo.png"},
   {source: "Yahoo", target: "Flickr", type: "acquisition", img: "images/flickr.png"},
@@ -543,7 +551,7 @@ function draw(checks) {
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
-    if (true) {
+    if (checkedValues.includes("showLogos")) {
       circle.enter().append("image")
       .attr("xlink:href", function(d) { return d.img; })
     } else {
@@ -582,7 +590,7 @@ function draw(checks) {
 };
 
 // At first display all clusters
-draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo']);
+draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo', 'showLogos']);
 
 </script>
 

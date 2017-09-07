@@ -3,7 +3,7 @@
 A force-directed graph of notable tech companies, their products, and services.
 View the full interactive graph [here](https://nchah.github.io/tech-graph/).
 
-**Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.**
+*Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.*
 
 ![](images/tech-graph.png)
 
@@ -60,17 +60,14 @@ However, the resulting static pngs didn't have the interactiveness that make som
 
 It's worth pointing out where this graph fall short.
 
-- Temporality is not represented in the graph. That is, changes in ownership of companies/products over time are not depicted.
+- Temporality is not represented in the graph. That is, changes in ownership of companies/products over time are not depicted here.
 - As mentioned already, the graph does not show all products and services offered by a company.
 - (Unintentional) bias will be present in the graph. How and why certain nodes are linked as they are is certainly open to discussion. This is similar to the ontological questions in how knowledge is represented in knowledge graphs.
 
 
 ## The Graph
 
-### General Findings
-
-- Many tech companies have an AI-assisted personal assistant in the market.
-- 
+Some brief comments on each of the clusters is provided below.
 
 ### Alphabet
 
@@ -89,22 +86,25 @@ It's worth pointing out where this graph fall short.
 - The Apple graph is structured around the different operating systems that the company maintains. This consistency made it easier to model how Apple software was linked to its various hardware products.
 - There's a separate branch for "Apps". Otherwise, linking them directly to the Apple node made the cluster very crowded and unreadable.
 
-
-
 ### Facebook
 
+- Facebook may seem like a smaller cluster in comparison to the others, but each of its linked nodes is quite significant by itself: Instagram, WhatsApp, React, etc.
+- A slight adjustment was made in distinguishing between Facebook, the company, and Facebook.com, the website. This made sense since the Messenger feature/app could be linked along this.
 
 ### IBM
+
+- Founded in 1911, IBM is the oldest of the tech companies shown here. Given its long history, it probably has the largest offering of products but only a very small subset of them are graphed in the cluster. This may also reflect how IBM has a stronger presence in the enterprise sphere.
 
 
 ### Microsoft
 
+- The Microsoft cluster seems most similar to the Apple cluster. Instead of various operating systems, the Windows OS branches off into various applications ranging from desktop, mobile, and gaming.
+- Microsoft's Office suite of applications (Word, Excel, Powerpoint) are an industry standard and they're linked under the Office node.
 
 ### Yahoo
 
-
-
-## Roadmap
+- Yahoo was acquired by Verizon, and this relationship is shown through the link with Oath Inc. Oath Inc. ([Wikipedia](https://en.wikipedia.org/wiki/Oath_Inc.)) is also the parent company for Yahoo, AOL (another early Internet giant), and other tech entities.
+- The rest of Verizon's products and services are not shown in the cluster.
 
 
 ## Sources
