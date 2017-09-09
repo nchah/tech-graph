@@ -27,7 +27,7 @@ View the full interactive graph [**here**](https://nchah.github.io/tech-graph/).
 ## Introduction
 
 This graph started as a side project one weekend in response to some recurring trends I saw with regards to  acquisitions of tech companies and products.
-Upon hearing that a company was acquired by [TECH_GIANT], this would often elicit a common set of questions. Why did they acquire them? What's the impact for that company and other competitors? What else do they own?
+Upon hearing that a company was acquired by [TECH GIANT], this would often elicit a common set of questions. Why did they acquire them? What's the impact for that company and other competitors? What else do they own?
 With the a great deal of attention given to tech companies and startups with the recent advances in machine learning and artificial intelligence, it seemed worthwhile to map out the various entities that fall under each major tech company.
 
 This graph can be interpreted on different levels.
@@ -85,36 +85,46 @@ Some brief comments on each of the clusters is provided below.
 
 ### Amazon
 
+![](repo-images/cluster-amazon.png)
+
 - There are separate nodes for Amazon and Amazon.com in an attempt to distinguish between the main Amazon products and other subsidiaries, like Whole Foods.
 - With regards to subsidiaries, Amazon have many and they were not all shown here.
 - Amazon Web Services (AWS) offers a large range of products. It was an arbitrary decision to just link to a few of those nodes.
 
 ### Apple
 
+![](repo-images/cluster-apple.png)
+
 - The Apple graph is structured around the different operating systems that the company maintains. This consistency made it easier to model how Apple software was linked to its various hardware products.
 - There's a separate branch for "Apps". Otherwise, linking them directly to the Apple node made the cluster very crowded and unreadable.
 
 ### Facebook
+
+![](repo-images/cluster-facebook.png)
 
 - Facebook may seem like a smaller cluster in comparison to the others, but each of its linked nodes is quite significant by itself: Instagram, WhatsApp, React, etc.
 - A slight adjustment was made in distinguishing between Facebook, the company, and Facebook.com, the website. This made sense since the Messenger feature/app could be linked along this.
 
 ### IBM
 
+![](repo-images/cluster-ibm.png)
+
 - Founded in 1911, IBM is the oldest of the tech companies shown here. Given its long history, it probably has the largest offering of products but only a very small subset of them are graphed in the cluster. This may also reflect how IBM has a stronger presence in the enterprise sphere.
 
 
 ### Microsoft
+
+![](repo-images/cluster-microsoft.png)
 
 - The Microsoft cluster seems most similar to the Apple cluster. Instead of various operating systems, the Windows OS branches off into various applications ranging from desktop, mobile, and gaming.
 - Microsoft's Office suite of applications (Word, Excel, Powerpoint) are an industry standard and they're linked under the Office node.
 
 ### Yahoo
 
+![](repo-images/cluster-yahoo.png)
+
 - Yahoo was acquired by Verizon, and this relationship is shown through the link with Oath Inc. Oath Inc. ([Wikipedia](https://en.wikipedia.org/wiki/Oath_Inc.)) is also the parent company for Yahoo, AOL (another early Internet giant), and other tech entities.
 - The rest of Verizon's products and services are not shown in the cluster.
-
-
 
 
 
