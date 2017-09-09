@@ -77,6 +77,8 @@ Some brief comments on each of the clusters is provided below.
 
 ### Alphabet
 
+![](repo-images/cluster-alphabet.png)
+
 - The graph shows Alphabet/Google after it was restructured in 2015. It's quite apparent that Google has the largest product offerings out of the other subsidiaries.
 - Most of the Google products were linked directly to the Google node. There is some branching shown with Android, Chrome, and the Cloud products.
 - It was difficult to find additional nodes to link to some of the other Alphabet subsidiaries like Calico and Jigsaw.
