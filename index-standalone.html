@@ -53,6 +53,10 @@
     pointer-events: none;
     text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
   }
+
+  div {
+    font-family: 'Roboto Mono', monospace;
+  }
   </style>
 </head>
 <body>
@@ -64,94 +68,100 @@
   <!-- <script type="text/javascript" src="js/tech-graph.js"></script> -->
   <!-- <script type="text/javascript" src="js/d3.js"></script> -->
   
-  <div id="mainDiv" style="text-align:center;">
-  <svg id="visualization" style="text-align:center;"></svg>
-  <div>
-    <span style="color:grey; font-style:italic">Disclaimer: All information is presented for informational purposes only. There is no affiliation with any of the companies shown here.</span>
+  <div style="text-align:center;">
     <br>
-    Legend:
-    <span style="color:green; opacity: 0.5;"> - main</span>
-    <span style="color:gold;"> - acquisition</span>
-    <span style="color:skyblue;"> - transition</span>
-    <span style="color:purple; opacity: 0.5;"> - hardware</span>
-    <span style="color:blue; opacity: 0.5;"> - research</span>
-    <span style="color:red; opacity: 0.5;"> - competitor/alternative</span>
+    <span style="font-size: 16px;">A Graph of Tech</span>
     <br>
-    <input type="checkbox" id="logos" class="mdl-checkbox__input" onclick="a1();" value="showLogos" checked>
-    <span class="mdl-checkbox__label">Show Logos</span>
+    <span style="color:grey; font-style:italic; font-size:12px;">A force-directed graph of notable tech companies, their products, and services.</span>
     <br>
     <br>
-    <span class="mdl-checkbox__label">Companies</span>
-  </div>
-  <div style="display:flex; margin:0 auto; width:70%;">
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
-    <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" checked>
-    <span class="mdl-checkbox__label">Alphabet</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
-    <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" checked>
-    <span class="mdl-checkbox__label">Amazon</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
-    <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" checked>
-    <span class="mdl-checkbox__label">Apple</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
-    <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" checked>
-    <span class="mdl-checkbox__label">Facebook</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5" style="display:flex;">
-    <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" checked>
-    <span class="mdl-checkbox__label">IBM</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6" style="display:flex;">
-    <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" checked>
-    <span class="mdl-checkbox__label">Microsoft</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7" style="display:flex;">
-    <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" checked>
-    <span class="mdl-checkbox__label">Yahoo</span>
-  </label>
-  </div>
-  <div>
+    <svg id="visualization" style="text-align:center;"></svg>
+    <div>
+      <span style="">Legend:</span>
+      <span style="color:green; opacity: 0.5;"> - main</span>
+      <span style="color:gold;"> - acquisition</span>
+      <span style="color:skyblue;"> - transition</span>
+      <span style="color:purple; opacity: 0.5;"> - hardware</span>
+      <span style="color:blue; opacity: 0.5;"> - research</span>
+      <span style="color:red; opacity: 0.5;"> - competitor/alternative</span>
+      <br>
+      <input type="checkbox" id="logos" class="mdl-checkbox__input" onclick="a1();" value="showLogos" checked>
+      <span class="mdl-checkbox__label" style="font-size:14px;">Show Logos</span>
+      <br>
+      <br>
+      <span class="mdl-checkbox__label" style="font-size:14px;">Companies</span>
+    </div>
+    <div style="display:flex; margin:0 auto; width:75%;">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1" style="display:flex;">
+        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" onclick="a1();" value="alphabet" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Alphabet</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2" style="display:flex;">
+        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" onclick="a1();" value="amazon" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Amazon</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3" style="display:flex;">
+        <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" onclick="a1();" value="apple" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Apple</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4" style="display:flex;">
+        <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" onclick="a1();" value="facebook" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Facebook</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5" style="display:flex;">
+        <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" onclick="a1();" value="ibm" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">IBM</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6" style="display:flex;">
+        <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" onclick="a1();" value="microsoft" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Microsoft</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7" style="display:flex;">
+        <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" onclick="a1();" value="yahoo" checked>
+        <span class="mdl-checkbox__label" style="font-size:14px;">Yahoo</span>
+      </label>
+    </div>
+    <div>
+      <br>
+      <span class="mdl-checkbox__label" style="font-size:14px;">Competitors</span>
+      </div>
+      <div style="display:flex; margin:0 auto; width:75%;">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ai" style="display:flex;">
+        <input type="checkbox" id="ai" class="mdl-checkbox__input" onclick="a1();" value="ai">
+        <span class="mdl-checkbox__label" style="font-size:14px;">AI/ML Research</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="assistants" style="display:flex;">
+        <input type="checkbox" id="assistants" class="mdl-checkbox__input" onclick="a1();" value="assistants">
+        <span class="mdl-checkbox__label" style="font-size:14px;">Assistants</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="browsers" style="display:flex;">
+        <input type="checkbox" id="browsers" class="mdl-checkbox__input" onclick="a1();" value="browsers">
+        <span class="mdl-checkbox__label" style="font-size:14px;">Browsers</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="clouds" style="display:flex;">
+        <input type="checkbox" id="clouds" class="mdl-checkbox__input" onclick="a1();" value="clouds">
+        <span class="mdl-checkbox__label" style="font-size:14px;">Clouds</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="email" style="display:flex;">
+        <input type="checkbox" id="email" class="mdl-checkbox__input" onclick="a1();" value="email">
+        <span class="mdl-checkbox__label" style="font-size:14px;">Email</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="search" style="display:flex;">
+        <input type="checkbox" id="search" class="mdl-checkbox__input" onclick="a1();" value="search">
+        <span class="mdl-checkbox__label" style="font-size:14px;">Search</span>
+      </label>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
+        <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
+        <span class="mdl-checkbox__label" style="font-size:14px;">VR/AR</span>
+      </label>
+      </div>
     <br>
-    <span class="mdl-checkbox__label">Competitors</span>
-  </div>
-  <div style="display:flex; margin:0 auto; width:70%; font-size:8px;">
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="ai" style="display:flex;">
-    <input type="checkbox" id="ai" class="mdl-checkbox__input" onclick="a1();" value="ai">
-    <span class="mdl-checkbox__label">AI/ML Research</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="assistants" style="display:flex;">
-    <input type="checkbox" id="assistants" class="mdl-checkbox__input" onclick="a1();" value="assistants">
-    <span class="mdl-checkbox__label">Assistants</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="browsers" style="display:flex;">
-    <input type="checkbox" id="browsers" class="mdl-checkbox__input" onclick="a1();" value="browsers">
-    <span class="mdl-checkbox__label">Browsers</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="clouds" style="display:flex;">
-    <input type="checkbox" id="clouds" class="mdl-checkbox__input" onclick="a1();" value="clouds">
-    <span class="mdl-checkbox__label">Clouds</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="email" style="display:flex;">
-    <input type="checkbox" id="email" class="mdl-checkbox__input" onclick="a1();" value="email">
-    <span class="mdl-checkbox__label">Email</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="search" style="display:flex;">
-    <input type="checkbox" id="search" class="mdl-checkbox__input" onclick="a1();" value="search">
-    <span class="mdl-checkbox__label">Search</span>
-  </label>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vr" style="display:flex;">
-    <input type="checkbox" id="vr" class="mdl-checkbox__input" onclick="a1();" value="vr">
-    <span class="mdl-checkbox__label">VR/AR</span>
-  </label>
-  </div>
-  <br>
-  <br>
-  <span>
-    Code is available on <a href="https://github.com/nchah/tech-graph">GitHub</a>
-  </span>
+    <br>
+    <span>
+      <span>Code is available on <a href="https://github.com/nchah/tech-graph">GitHub</a></span>
+      <br>
+      <span style="color:grey; font-style:italic; font-size:10px;">Disclaimer: All information is presented for informational purposes only. There is no affiliation with any of the companies shown here.</span>
+    </span>
 
 <script>
 var competingAssistants = [
