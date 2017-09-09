@@ -77,7 +77,7 @@ Some brief comments on each of the clusters is provided below.
 
 ### Alphabet
 
-![](repo-images/cluster-alphabet.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-alphabet.png?raw=true" width="75%">
 
 - The graph shows Alphabet/Google after it was restructured in 2015. It's quite apparent that Google has the largest product offerings out of the other subsidiaries.
 - Most of the Google products were linked directly to the Google node. There is some branching shown with Android, Chrome, and the Cloud products.
@@ -85,7 +85,7 @@ Some brief comments on each of the clusters is provided below.
 
 ### Amazon
 
-![](repo-images/cluster-amazon.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-amazon.png?raw=true" width="50%">
 
 - There are separate nodes for Amazon and Amazon.com in an attempt to distinguish between the main Amazon products and other subsidiaries, like Whole Foods.
 - With regards to subsidiaries, Amazon have many and they were not all shown here.
@@ -93,35 +93,35 @@ Some brief comments on each of the clusters is provided below.
 
 ### Apple
 
-![](repo-images/cluster-apple.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-apple.png?raw=true" width="50%">
 
 - The Apple graph is structured around the different operating systems that the company maintains. This consistency made it easier to model how Apple software was linked to its various hardware products.
 - There's a separate branch for "Apps". Otherwise, linking them directly to the Apple node made the cluster very crowded and unreadable.
 
 ### Facebook
 
-![](repo-images/cluster-facebook.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-facebook.png?raw=true" width="50%">
 
 - Facebook may seem like a smaller cluster in comparison to the others, but each of its linked nodes is quite significant by itself: Instagram, WhatsApp, React, etc.
 - A slight adjustment was made in distinguishing between Facebook, the company, and Facebook.com, the website. This made sense since the Messenger feature/app could be linked along this.
 
 ### IBM
 
-![](repo-images/cluster-ibm.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-ibm.png?raw=true" width="50%">
 
 - Founded in 1911, IBM is the oldest of the tech companies shown here. Given its long history, it probably has the largest offering of products but only a very small subset of them are graphed in the cluster. This may also reflect how IBM has a stronger presence in the enterprise sphere.
 
 
 ### Microsoft
 
-![](repo-images/cluster-microsoft.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-microsoft.png?raw=true" width="75%">
 
 - The Microsoft cluster seems most similar to the Apple cluster. Instead of various operating systems, the Windows OS branches off into various applications ranging from desktop, mobile, and gaming.
 - Microsoft's Office suite of applications (Word, Excel, Powerpoint) are an industry standard and they're linked under the Office node.
 
 ### Yahoo
 
-![](repo-images/cluster-yahoo.png)
+<img src="https://github.com/nchah/tech-graph/blob/master/repo-images/cluster-yahoo.png?raw=true" width="50%">
 
 - Yahoo was acquired by Verizon, and this relationship is shown through the link with Oath Inc. Oath Inc. ([Wikipedia](https://en.wikipedia.org/wiki/Oath_Inc.)) is also the parent company for Yahoo, AOL (another early Internet giant), and other tech entities.
 - The rest of Verizon's products and services are not shown in the cluster.
