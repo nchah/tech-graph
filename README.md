@@ -11,6 +11,7 @@ View the full interactive graph [**here**](https://nchah.github.io/tech-graph/).
 
   * [Contents](#contents)
   * [Introduction](#introduction)
+  * [This Repo](#this-repo)
   * [Methodology](#methodology)
   * [Limitations](#limitations)
   * [Roadmap](#roadmap)
@@ -37,6 +38,28 @@ At another level, this graph may show how the different companies are structured
 In other ways, this graph may lend itself well to arguments for exercising caution in how one consumes the vast technological offerings presented by these companies.
 The possible use cases can range from the simple to the complex, and are open to interpretation.
 
+## This Repo
+
+An outline of the contents in this repo.
+
+```
+$ tree
+.
+├── CHANGELOG.MD
+├── LICENSE
+├── README.md
+├── repo-images
+│   └── ...
+└── vanilla-js
+    ├── css
+    │   └── styles.css
+    ├── images
+    │   └── ...
+    ├── index-standalone.html
+    ├── index.html
+    └── js
+        └── tech-graph.js
+```
 
 ## Methodology
 
