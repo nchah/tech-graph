@@ -349,12 +349,17 @@ function draw(checks) {
     link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
     link.target = nodes[link.target] || (nodes[link.target] = {name: link.target, img: link.img});
   });
+  
   // workaround to let subclusters be unlinked
   for (var i = 0; i < links.length; i++) {
     if (links[i].source.name == "") {
       links.splice(i, 1);
     }
   }
+
+  // delete empty node
+  delete nodes[""]
+
   // Define graph parameters
   var width = 1000,
       height = 600;
