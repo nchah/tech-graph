@@ -99,6 +99,7 @@ var alphabet = [
   {source: "Cloud", target: "App Engine", type: "main", img: "images/google-appengine.png"},
   {source: "Cloud", target: "Drive", type: "main", img: "images/google-drive.png"},
   {source: "Cloud", target: "G Suite", type: "main", img: "images/gsuite.png"},
+  {source: "Cloud", target: "Kaggle", type: "acquisition", img: "images/kaggle.png"},
   {source: "G Suite", target: "Docs", type: "main", img: "images/google-docs.png"},
   {source: "G Suite", target: "Sheets", type: "main", img: "images/google-sheets.png"},
   {source: "G Suite", target: "Slides", type: "main", img: "images/google-slides.png"},
