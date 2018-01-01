@@ -9,7 +9,6 @@ View the full interactive graph [**here**](https://nchah.github.io/tech-graph/).
 
 ## Contents
 
-  * [Contents](#contents)
   * [Introduction](#introduction)
   * [This Repo](#this-repo)
   * [Methodology](#methodology)
