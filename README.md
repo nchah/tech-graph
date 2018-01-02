@@ -1,7 +1,8 @@
 # A Graph of Tech
 
 A force-directed graph of notable tech companies, their products, and services.
-View the full interactive graph [**here**](https://nchah.github.io/tech-graph/).
+
+View the interactive graph [**here**](https://nchah.github.io/tech-graph/).
 
 *Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.*
 
