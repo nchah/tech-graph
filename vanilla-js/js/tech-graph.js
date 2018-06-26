@@ -219,6 +219,7 @@ var ibm = [
 
 var microsoft = [
   {source: "", target: "Microsoft", img: "images/microsoft.png"},
+  {source: "Microsoft", target: "GitHub", type: "acquisition", img: "images/github.png"},
   {source: "Microsoft", target: "Hotmail", type: "acquisition", img: "images/hotmail.png"},
   {source: "Hotmail", target: "Outlook.com", type: "transition", img: "images/outlook.png"},
   {source: "Microsoft", target: "Bing", type: "main", img:"images/bing.png"},
