@@ -374,6 +374,12 @@ function draw(checks) {
       .charge(-250)
       .on("tick", tick)
       .start();
+  // Disabled: Adding drag feature
+  // drag = force.drag()
+  //   .on('dragstart', function(d) {
+  //     d3.select(this).classed('fixed', d.fixed = true);
+  //     force.stop();
+  //   });
   var svg = d3.select("#visualization")
       .attr("width", width)
       .attr("height", height);
