@@ -281,6 +281,29 @@ var yahoo = [
   {source: "Yahoo", target: "GeoCities", type: "acquisition", img: "images/yahoo.png"}
 ];
 
+// var zoom = d3.behavior.zoom()
+//   .scaleExtent([0, 10])
+//   .on("zoom", redraw); 
+//   //if you are sure that your zoom function is working just replace redraw with your zoom function
+
+// var zoom = d3.behavior.zoom()
+//     .translate(projection.translate())
+//     .scale(projection.scale())
+//     .scaleExtent([height, 8 * height])
+//     .on("zoom", zoomed);
+
+// var g = svg.append("g")
+//     .call(zoom);
+
+// // function redraw() {
+// //     return svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
+// // }
+
+// function zoomed() {
+//   projection.translate(d3.event.translate).scale(d3.event.scale);
+//   g.selectAll("path").attr("d", path);
+// }
+
 
 function a1() {
   // Remove the existing svg elements
@@ -375,15 +398,21 @@ function draw(checks) {
       .charge(-250)
       .on("tick", tick)
       .start();
-  // Disabled: Adding drag feature
-  // drag = force.drag()
-  //   .on('dragstart', function(d) {
-  //     d3.select(this).classed('fixed', d.fixed = true);
-  //     force.stop();
-  //   });
+  // Node dragging behavior
+  drag = force.drag()
+    .origin(function(d) { return d; })
+    .on("dragstart", dragstarted)
+    .on("drag", dragged)
+    .on("dragend", dragended);
+
   var svg = d3.select("#visualization")
       .attr("width", width)
-      .attr("height", height);
+      .attr("height", height)
+      // Zoom behavior
+      .call(d3.behavior.zoom().on("zoom", function () {
+        svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+        }))
+      .append("g");
   // // Add a border around the visualization box
   // var borderPath = svg.append("rect")
   //         .attr("x", 0)
@@ -450,6 +479,22 @@ function draw(checks) {
     return "translate(" + d.x + "," + d.y + ")";
   };
 };
+
+function dragstarted(d) {
+  d3.event.sourceEvent.stopPropagation();
+  d3.select(this).classed("dragging", true);
+  // Makes moved nodes sticky
+  // d3.select(this).classed('fixed', d.fixed = true);
+  // d3.force.stop();
+}
+
+function dragged(d) {
+  d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+}
+
+function dragended(d) {
+  d3.select(this).classed("dragging", false);
+}
 
 // At first display all clusters
 draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo', 'showLogos']);
