@@ -388,8 +388,19 @@ function draw(checks) {
   delete nodes[""]
 
   // Define graph parameters
-  var width = 1000,
-      height = 600;
+  // var width = 1000;
+  // var height = 600;
+  var width = window.innerWidth
+              || document.documentElement.clientWidth
+              || document.body.clientWidth;
+  var width = width * 0.9;
+
+  var height = window.innerHeight
+              || document.documentElement.clientHeight
+              || document.body.clientHeight;
+  var height = height * 0.75;
+
+
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(links)
