@@ -58,7 +58,6 @@ var competingVR =[
 
 var alphabet = [
   {source: "", target: "Alphabet", img: "images/alphabet.png"},
-  {source: "Alphabet", target: "Nest", type: "acquisition", img: "images/nest.png"},
   {source: "Alphabet", target: "Calico", type: "main", img: "images/calico.png" },
   {source: "Alphabet", target: "Google", type: "main", img: "images/google.png"},
   {source: "Alphabet", target: "DeepMind", type: "acquisition", img: "images/deepmind.png"},
@@ -68,6 +67,7 @@ var alphabet = [
   {source: "Alphabet", target: "GV", type: "main", img: "images/gv.png"},
   {source: "Alphabet", target: "Jigsaw", type: "main", img: "images/jigsaw.png"},
   {source: "Alphabet", target: "Verily", type: "main", img: "images/verily.png"},
+  {source: "Google", target: "Nest", type: "acquisition", img: "images/nest.png"},
   {source: "Google", target: "Go", type: "main", img: "images/google-go.png"},
   {source: "Google", target: "Dart", type: "main", img: "images/google-dart.png"},
   {source: "Google", target: "AngularJS", type: "main", img: "images/google-angular.png"},
