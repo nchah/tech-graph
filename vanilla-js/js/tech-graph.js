@@ -151,6 +151,7 @@ var apple = [
   {source: "Apple", target: "Swfit", type: "main", img: "images/apple-swift.png"},
   {source: "Apple", target: "Apple Music", type: "main", img: "images/apple.png"},
   {source: "Apple", target: "Apps", type: "main", img: "images/apple.png"},
+  {source: "Apps", target: "Shazam", type: "acquisition", img: "images/shazam.png"},
   {source: "Apps", target: "Apple Maps", type: "main", img: "images/apple-maps.png"},
   {source: "Apps", target: "iCloud", type: "main", img:"images/apple-icloud.png"},
   {source: "Apps", target: "iWork", type: "main", img:"images/apple-iwork.png"},
