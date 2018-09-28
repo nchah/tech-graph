@@ -432,7 +432,8 @@ function draw(checks) {
   //         .attr("width", width)
   //         .style("stroke", "blue")
   //         .style("fill", "none")
-  //         .style("stroke-width", 1);
+  //         .style("stroke-dasharray", "10 5")
+  //         .style("stroke-width", 2);
   // Per-type markers, as they don't inherit styles.
   svg.append("defs").selectAll("marker")
       .data(["transition", "acquisition"])

@@ -25,9 +25,9 @@ A force-directed graph of notable tech companies, their products, and services. 
 
 ## Introduction
 
-This graph started as a side project one weekend in response to some recurring trends I saw with regards to  acquisitions of tech companies and products.
+This graph started as a side project one weekend in response to some recurring trends I saw.
 Upon hearing that a company was acquired by [TECH GIANT], this would often elicit a common set of questions. Why did they acquire them? What's the impact for that company and other competitors? What else do they own?
-With the a great deal of attention given to tech companies and startups with the recent advances in machine learning and artificial intelligence, it seemed worthwhile to map out the various entities that fall under each major tech company.
+With the a great deal of attention on tech companies with recent advances in machine learning and artificial intelligence, it seemed worthwhile to map out the various entities under each major tech company.
 
 This graph can be interpreted on different levels.
 At a surface level, this is a fun and interactive visualization.
@@ -73,7 +73,6 @@ The company and product logos in the visualization were collected from various w
 The first implementation was in Python using the `matplotlib` and `networkx` libraries.
 However, the resulting static pngs didn't have the interactiveness that make some nice visualizations all the more impactful.
 For that, I switched the stack to use JavaScript and the [D3.js](https://d3js.org/) library.
-Some of the checkboxes on the page make use of [Material Design Lite](https://github.com/google/material-design-lite) elements.
 
 
 ## Limitations
