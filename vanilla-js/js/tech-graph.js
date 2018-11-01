@@ -205,6 +205,11 @@ var facebook = [
 
 var ibm = [
   {source: "", target: "IBM", img: "images/ibm.png"},
+  {source: "IBM", target: "Red Hat", type: "acquisition", img: "images/red-hat.png"},
+  {source: "Red Hat", target: "Fedora", type: "main", img: "images/fedora.png"},
+  {source: "Red Hat", target: "CentOS", type: "acquisition", img: "images/centos.png"},
+  {source: "Red Hat", target: "CoreOS", type: "acquisition", img: "images/coreos.png"},
+  {source: "Red Hat", target: "Ansible", type: "acquisition", img: "images/ansible.png"},
   {source: "IBM", target: "DB2", type: "main", img: "images/ibm.png"},
   {source: "IBM", target: "IBM Research", type: "research", img: "images/ibm.png"},
   {source: "IBM", target: "Watson", type: "main", img: "images/watson.png"},
