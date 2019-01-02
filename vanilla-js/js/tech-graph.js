@@ -57,7 +57,7 @@ var competingVR =[
 ];
 
 var alphabet = [
-  {source: "", target: "Alphabet", img: "images/alphabet.png"},
+  {source: "", target: "Alphabet", img: "images/alphabet.png", hover: "asdf", desc: "qwer", url: "asdf"},
   {source: "Alphabet", target: "Calico", type: "main", img: "images/calico.png" },
   {source: "Alphabet", target: "Google", type: "main", img: "images/google.png"},
   {source: "Alphabet", target: "DeepMind", type: "acquisition", img: "images/deepmind.png"},
@@ -378,9 +378,21 @@ function draw(checks) {
   }
   var nodes = {};
   // Compute the distinct nodes from the links.
+  // links.forEach(function(link) {
+  //   link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  //   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target, img: link.img});
+  // });
+
+  // Compute the distinct nodes from the links.
   links.forEach(function(link) {
-    link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
-    link.target = nodes[link.target] || (nodes[link.target] = {name: link.target, img: link.img});
+    link.source = nodes[link.source] || (nodes[link.source] = {name: link.source, 
+                                                                     hover: link.hover, 
+                                                                     url: link.url,
+                                                                     desc: link.desc});
+    link.target = nodes[link.target] || (nodes[link.target] = {name: link.target,
+                                                               img: link.img, 
+                                                               hover: link.hover,
+                                                               url: link.url});
   });
   
   // workaround to let subclusters be unlinked
@@ -421,6 +433,12 @@ function draw(checks) {
     .on("dragstart", dragstarted)
     .on("drag", dragged)
     .on("dragend", dragended);
+  // Node dragging behavior (drag and anchor but not with zoom)
+  // drag = force.drag()
+  //   .on('dragstart', function(d) {
+  //     d3.select(this).classed('fixed', d.fixed = true);
+  //     force.stop();
+  // });
 
   var svg = d3.select("#visualization")
       .attr("width", width)
@@ -453,11 +471,13 @@ function draw(checks) {
       .attr("orient", "auto")
     .append("path")
       .attr("d", "M0,-5L10,0L0,5");
+
   var path = svg.append("g").selectAll("path")
       .data(force.links())
     .enter().append("path")
       .attr("class", function(d) { return "link " + d.type; })
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
     if (checkedValues.includes("showLogos")) {
@@ -467,11 +487,35 @@ function draw(checks) {
       circle.enter().append("circle")
       .attr("r", 6)
     }
-    circle.attr("x", -16)
+
+  circle.attr("x", -16)
       .attr("y", -16)
       .attr("width", 32)
       .attr("height", 32)
+      // Tooltip
+      .on("mouseover", function(d) { if(d.hover) { return tooltip.text(d.hover).style("visibility", "visible");} })
+      .on("mousemove", function(d) { return tooltip.text(d.hover).style("top",
+        (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+      .on("mouseout", function(d) { return tooltip.text(d.hover).style("visibility", "hidden");})
+      // Double clicking
+      .on("dblclick", function(d) { durl = d.url.toString(); window.open(durl, "_blank"); })
+      // Right click
+      .on("contextmenu", function(d) {
+        //stop showing browser menu
+        d3.event.preventDefault();
+        return tooltip.text(d.desc).style("visibility", "visible"); })
       .call(force.drag);
+  // Implemented tooltip feature
+  var tooltip = d3.select("body")
+    .append("div")
+    .style("background-color", "skyblue")
+    .style("padding", "0.5em")
+    .style("font-size", "12px")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden");
+
+
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
     .enter().append("text")
@@ -513,6 +557,7 @@ function dragged(d) {
 function dragended(d) {
   d3.select(this).classed("dragging", false);
 }
+
 
 // At first display all clusters
 draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo', 'showLogos']);
