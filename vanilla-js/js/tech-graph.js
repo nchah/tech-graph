@@ -10,7 +10,7 @@ var competingAssistants = [
 
 var competingAiResearch =[
   {source: "", target: "AI/ML Research", img: "images/compete-vr.png"},
-  {source: "Brain", target: "AI/ML Research", type: "competitor"},
+  {source: "Google AI", target: "AI/ML Research", type: "competitor"},
   {source: "DeepMind", target: "AI/ML Research", type: "competitor"},
   {source: "Research", target: "AI/ML Research", type: "competitor"},
   {source: "Maluuba", target: "AI/ML Research", type: "competitor"},
@@ -57,7 +57,7 @@ var competingVR =[
 ];
 
 var alphabet = [
-  {source: "", target: "Alphabet", img: "images/alphabet.png", hover: "asdf", desc: "qwer", url: "asdf"},
+  {source: "", target: "Alphabet", img: "images/alphabet.png", hover: "", url: ""},
   {source: "Alphabet", target: "Calico", type: "main", img: "images/calico.png" },
   {source: "Alphabet", target: "Google", type: "main", img: "images/google.png"},
   {source: "Alphabet", target: "DeepMind", type: "acquisition", img: "images/deepmind.png"},
@@ -67,10 +67,12 @@ var alphabet = [
   {source: "Alphabet", target: "GV", type: "main", img: "images/gv.png"},
   {source: "Alphabet", target: "Jigsaw", type: "main", img: "images/jigsaw.png"},
   {source: "Alphabet", target: "Verily", type: "main", img: "images/verily.png"},
+  {source: "Google", target: "Waze", type: "acquisition", img: "images/waze.png"},
   {source: "Google", target: "Nest", type: "acquisition", img: "images/nest.png"},
-  {source: "Google", target: "Go", type: "main", img: "images/google-go.png"},
-  {source: "Google", target: "Dart", type: "main", img: "images/google-dart.png"},
-  {source: "Google", target: "AngularJS", type: "main", img: "images/google-angular.png"},
+  {source: "Google", target: "Languages\n/Frameworks", type: "main", img: "images/google.png"},
+  {source: "Languages\n/Frameworks", target: "Dart", type: "main", img: "images/google-dart.png"},
+  {source: "Languages\n/Frameworks", target: "AngularJS", type: "main", img: "images/google-angular.png"},
+  {source: "Languages\n/Frameworks", target: "Go", type: "main", img: "images/google-go.png"},
   {source: "Google", target: "Maps", type: "acquisition", img: "images/google-maps.png"},
   {source: "Google", target: "Search", type: "main", img: "images/google.png"},
   {source: "Google", target: "Ads", type: "main", img: "images/google.png"},
@@ -79,18 +81,16 @@ var alphabet = [
   {source: "Google", target: "YouTube", type: "acquisition", img: "images/youtube.png"},
   {source: "Google", target: "Cloud", type: "main", img: "images/google-cloud.png"},
   {source: "Google", target: "Android", type: "acquisition", img: "images/android.png"},  
-  {source: "Google", target: "Keep", type: "main", img: "images/google-keep.png"},
   {source: "Google", target: "Google Photos", type: "main", img: "images/google-photos.png"},
   {source: "Google", target: "Google+", type: "main", img: "images/google-plus.png"},
-  {source: "Google", target: "Blogger", type: "main", img: "images/blogger.png"},
-  {source: "Google", target: "Brain", type: "research", img: "images/google.png"},
+  {source: "Google", target: "Blogger", type: "acquisition", img: "images/blogger.png"},
+  {source: "Google", target: "Google AI", type: "research", img: "images/google.png"},
   {source: "Android", target: "Play", type: "main", img: "images/google-play.png"},
   {source: "Android", target: "Assistant", type: "main", img: "images/google-assistant.png"},
   {source: "Assistant", target: "Home", type: "hardware", img: "images/google-home.png"},
   {source: "Assistant", target: "Home Mini", type: "hardware", img: "images/google-home.png"},
   {source: "Android", target: "Cardboard", type: "main", img: "images/google-cardboard.png"},
   {source: "Android", target: "Daydream", type: "main", img: "images/google-daydream.png"},
-  {source: "Android", target: "Nexus", type: "hardware", img: "images/nexus.png"},
   {source: "Android", target: "Pixel", type: "hardware", img: "images/pixel.png"},
   {source: "Maps", target: "Earth", type: "main", img: "images/google-earth.png"},
   {source: "Chromium", target: "Chrome", type: "main", img: "images/chrome.png"},
@@ -102,6 +102,7 @@ var alphabet = [
   {source: "Cloud", target: "Drive", type: "main", img: "images/google-drive.png"},
   {source: "Cloud", target: "G Suite", type: "main", img: "images/gsuite.png"},
   {source: "Cloud", target: "Kaggle", type: "acquisition", img: "images/kaggle.png"},
+  {source: "G Suite", target: "Keep", type: "main", img: "images/google-keep.png"},
   {source: "G Suite", target: "Docs", type: "main", img: "images/google-docs.png"},
   {source: "G Suite", target: "Sheets", type: "main", img: "images/google-sheets.png"},
   {source: "G Suite", target: "Slides", type: "main", img: "images/google-slides.png"},
@@ -149,8 +150,8 @@ var apple = [
   {source: "Apple", target: "Siri", type: "acquisition", img: "images/siri.png"},
   {source: "Apple", target: "Beats", type: "acquisition", img: "images/beats.png"},
   {source: "Apple", target: "Swfit", type: "main", img: "images/apple-swift.png"},
-  {source: "Apple", target: "Apple Music", type: "main", img: "images/apple.png"},
   {source: "Apple", target: "Apps", type: "main", img: "images/apple.png"},
+  {source: "Apps", target: "Apple Music", type: "main", img: "images/apple.png"},
   {source: "Apps", target: "Shazam", type: "acquisition", img: "images/shazam.png"},
   {source: "Apps", target: "Apple Maps", type: "main", img: "images/apple-maps.png"},
   {source: "Apps", target: "iCloud", type: "main", img:"images/apple-icloud.png"},
@@ -164,7 +165,7 @@ var apple = [
   {source: "Apps", target: "iTunes", type: "main", img:"images/apple-itunes.png"},
   {source: "Apps", target: "Safari", type: "main", img:"images/safari.png"},
   {source: "Apps", target: "Apple Photos", type: "main", img:"images/apple-photos.png"},
-  {source: "Apps", target: "Messages", type: "main", img:"images/apple-messages.png"},
+  {source: "Apps", target: "iMessages", type: "main", img:"images/apple-messages.png"},
   {source: "Apps", target: "Mail", type: "main", img:"images/apple-mail.png"},
   {source: "Apple", target: "tvOS", type: "main", img:"images/apple-tv.png"},
   {source: "tvOS", target: "TV", type: "hardware", img:"images/apple-tv.png"},
@@ -172,14 +173,16 @@ var apple = [
   {source: "watchOS", target: "Watch", type: "hardware", img:"images/apple-watch.png"},
   {source: "Apple", target: "iOS", type: "main", img:"images/apple-ios.png"},
   {source: "iOS", target: "iPhone", type: "hardware", img:"images/apple.png"},
+  {source: "iPhone", target: "iPhone 7 (Plus)", type: "hardware", img:"images/apple.png"},
+  {source: "iPhone", target: "iPhone 8 (Plus)", type: "hardware", img:"images/apple.png"},
+  {source: "iPhone", target: "iPhone X", type: "hardware", img:"images/apple.png"},
+  {source: "iPhone", target: "iPhone XS (Max)", type: "hardware", img:"images/apple.png"},
+  {source: "iPhone", target: "iPhone XR", type: "hardware", img:"images/apple.png"},
   {source: "iOS", target: "iPad", type: "hardware", img:"images/apple-ipad.png"},
-  {source: "iPad", target: "Air", type: "hardware", img: "images/apple-ipad.png"},
   {source: "iPad", target: "Mini", type: "hardware", img: "images/apple-ipad.png"},
   {source: "iPad", target: "Pro", type: "hardware", img: "images/apple-ipad.png"},
   {source: "iOS", target: "iPod", type: "hardware", img:"images/apple.png"},
   {source: "iPod", target: "Touch", type: "hardware", img: "images/apple.png"},
-  {source: "iPod", target: "Nano", type: "hardware", img: "images/apple.png"},
-  {source: "iPod", target: "Shuffle", type: "hardware", img: "images/apple.png"},
   {source: "Apple", target: "macOS", type: "main", img:"images/apple-macos.png"},
   {source: "macOS", target: "Mac", type: "hardware", img: "images/apple.png"},
   {source: "Mac", target: "iMac", type: "hardware", img: "images/apple.png"},
@@ -198,7 +201,7 @@ var facebook = [
   {source: "Oculus VR", target: "Oculus Rift", type: "hardware", img: "images/oculus.png"},
   {source: "Facebook", target: "Facebook.com", type: "main", img: "images/facebook.png"},
   {source: "Facebook.com", target: "Messenger", type: "main", img: "images/facebook-messenger.png"},
-  {source: "Messenger", target: "M", type: "main", img: "images/facebook-messenger.png"},
+  {source: "Messenger", target: "M", type: "main", img: "images/facebook-m.png"},
   {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png"},
   {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png"}
 ];
@@ -230,36 +233,31 @@ var microsoft = [
   {source: "Hotmail", target: "Outlook.com", type: "transition", img: "images/outlook.png"},
   {source: "Microsoft", target: "Bing", type: "main", img:"images/bing.png"},
   {source: "Microsoft", target: "Skype", type: "acquisition", img:"images/skype.png"},
-  {source: "Microsoft", target: "Nokia", type: "acquisition", img: "images/nokia.png"},
   {source: "Microsoft", target: "Linkedin", type: "acquisition", img: "images/linkedin.png"},
   {source: "Microsoft", target: "SQL Server", type: "main", img: "images/microsoft-sqlserver.png"},
+  {source: "Microsoft", target: "Minecraft", type: "acquisition", img: "images/minecraft.png"},
   {source: "Microsoft", target: "Windows", type: "main", img:"images/windows.png"},
+  {source: "Windows", target: "Windows 10", type: "main", img:"images/windows.png"},
   {source: "Windows", target: "Cortana", type: "main", img:"images/microsoft-cortana.png"},
   {source: "Windows", target: "HoloLens", type: "hardware", img:"images/microsoft-hololens.png"},
   {source: "Windows", target: "Surface", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface", type: "hardware", img:"images/microsoft.png"},
+  {source: "Surface", target: "Surface Go", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface Pro", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface Laptop", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface Book", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface Studio", type: "hardware", img:"images/microsoft.png"},
   {source: "Surface", target: "Surface Hub", type: "hardware", img:"images/microsoft.png"},
   {source: "Windows", target: "Xbox OS", type: "main", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Xbox OS", target: "Xbox 360", type: "hardware", img:"images/windows-xbox.png"},
   {source: "Xbox OS", target: "Xbox One", type: "hardware", img:"images/windows-xbox.png"},
   {source: "Xbox OS", target: "Xbox One X", type: "hardware", img:"images/windows-xbox.png"},
-  {source: "Windows", target: "Mobile", type: "main", img:"images/windows.png"},
-  {source: "Mobile", target: "Lumia", type: "hardware", img:"images/windows-lumia.png"},
   {source: "Microsoft", target: "Azure", type: "main", img: "images/microsoft-azure.png"},
-  {source: "Microsoft", target: "SharePoint", type: "main", img: "images/microsoft-sharepoint.png"},
   {source: "Microsoft", target: "Office", type: "main", img: "images/microsoft-office.png"},
+  {source: "Office", target: "SharePoint", type: "main", img: "images/microsoft-sharepoint.png"},
   {source: "Office", target: "Word", type: "main", img: "images/microsoft-word.png"},
   {source: "Office", target: "Excel", type: "main", img: "images/microsoft-excel.png"},
   {source: "Office", target: "PowerPoint", type: "main", img: "images/microsoft-powerpoint.png"},
-  {source: "Office", target: "Outlook", type: "main", img: "images/microsoft-outlook.png"},
   {source: "Office", target: "Microsoft Access", type: "main", img: "images/microsoft-access.png"},
-  {source: "Office", target: "OneNote", type: "main", img: "images/microsoft-onenote.png"},
-  {source: "Office", target: "Publisher", type: "main", img: "images/microsoft-publisher.png"},
   {source: "Microsoft", target: "Research", type: "research", img: "images/microsoft.png"},
   {source: "Microsoft", target: "Maluuba", type: "acquisition", img: "images/maluuba.png"},
   {source: "Microsoft", target: "OneDrive", type: "main", img: "images/microsoft-onedrive.png"},
@@ -493,17 +491,22 @@ function draw(checks) {
       .attr("width", 32)
       .attr("height", 32)
       // Tooltip
-      .on("mouseover", function(d) { if(d.hover) { return tooltip.text(d.hover).style("visibility", "visible");} })
-      .on("mousemove", function(d) { return tooltip.text(d.hover).style("top",
-        (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-      .on("mouseout", function(d) { return tooltip.text(d.hover).style("visibility", "hidden");})
+      .on("mouseover", function(d) { 
+        if(d.hover) { return tooltip.text(d.hover).style("visibility", "visible");} })
+      .on("mousemove", function(d) { 
+        return tooltip.text(d.hover).style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+      .on("mouseout", function(d) { 
+        return tooltip.text(d.hover).style("visibility", "hidden");})
       // Double clicking
-      .on("dblclick", function(d) { durl = d.url.toString(); window.open(durl, "_blank"); })
+      .on("dblclick", function(d) {
+        durl = d.url.toString(); window.open(durl, "_blank");
+        // Disable double-click zoom
+        d3.select("svg").on("dblclick.zoom", null); })
       // Right click
-      .on("contextmenu", function(d) {
-        //stop showing browser menu
-        d3.event.preventDefault();
-        return tooltip.text(d.desc).style("visibility", "visible"); })
+      // .on("contextmenu", function(d) {
+      //   //stop showing browser menu
+      //   d3.event.preventDefault();
+      //   return tooltip.text(d.desc).style("visibility", "visible"); })
       .call(force.drag);
   // Implemented tooltip feature
   var tooltip = d3.select("body")
@@ -515,13 +518,41 @@ function draw(checks) {
     .style("z-index", "10")
     .style("visibility", "hidden");
 
-
+  // Text labels
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
     .enter().append("text")
       .attr("x", -20)
       .attr("y", -16) //".31em")
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name; })
+      .call(wrap, 75);
+
+  function wrap(text, width) {
+    text.each(function() {
+      var text = d3.select(this),
+          words = text.text().slice(0,50).split(/\s+/).reverse(),
+          word,
+          line = [],
+          lineNumber = 0,
+          lineHeight = 1, // ems
+          x = text.attr("x"),
+          y = text.attr("y"),
+          // dy = parseFloat(text.attr("dy")),
+          dy = text.attr("dy") ? text.attr("dy") : 0; //<-- null check
+          tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+      while (word = words.pop()) {
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > width) {
+          line.pop();
+          tspan.text(line.join(" "));
+          line = [word];
+          tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        }
+      }
+    });
+  }
+
 
   // Use elliptical arc path segments to doubly-encode directionality.
   function tick() {
@@ -560,4 +591,5 @@ function dragended(d) {
 
 
 // At first display all clusters
-draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo', 'showLogos']);
+draw(['alphabet', 'amazon', 'apple', 'facebook', 'microsoft', 'showLogos']);
+// draw(['alphabet', 'amazon', 'apple', 'facebook', 'ibm', 'microsoft', 'yahoo', 'showLogos']);
