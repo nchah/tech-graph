@@ -14,7 +14,7 @@ var competingAiResearch =[
   {source: "DeepMind", target: "AI/ML Research", type: "competitor"},
   {source: "Research", target: "AI/ML Research", type: "competitor"},
   {source: "Maluuba", target: "AI/ML Research", type: "competitor"},
-  {source: "FAIR", target: "AI/ML Research", type: "competitor"},
+  {source: "Facebook Research", target: "AI/ML Research", type: "competitor"},
   {source: "IBM Research", target: "AI/ML Research", type: "competitor"},
 ];
 
@@ -205,7 +205,7 @@ var facebook = [
   {source: "Facebook", target: "Facebook.com", type: "main", img: "images/facebook.png", url: "https://en.wikipedia.org/wiki/Facebook", hover: "Facebook, Inc. is an American online social media and social networking service company based in Menlo Park, California."},
   {source: "Facebook.com", target: "Messenger", type: "main", img: "images/facebook-messenger.png", url: "https://en.wikipedia.org/wiki/Facebook_Messenger", hover: "Facebook Messenger (commonly known as Messenger)[4] is a messaging app and platform."},
   {source: "Messenger", target: "M", type: "main", img: "images/facebook-m.png", url: "https://en.wikipedia.org/wiki/M_(virtual_assistant)", hover: "M was a virtual assistant by Facebook, first announced in August 2015, that can automatically complete tasks for users, such as purchase items, arrange gift deliveries, reserve restaurant tables, and arrange travel."},
-  {source: "Facebook", target: "FAIR", type: "research", img: "images/facebook.png", url: "https://research.fb.com/category/facebook-ai-research/", hover: ""},
+  {source: "Facebook", target: "Facebook Research", type: "research", img: "images/facebook.png", url: "https://research.fb.com/", hover: ""},
   {source: "Facebook", target: "React", type: "main", img: "images/facebook-react.png", url: "https://en.wikipedia.org/wiki/React_(JavaScript_library)", hover: "In computing, React (also known as React.js or ReactJS) is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies."}
 ];
 
