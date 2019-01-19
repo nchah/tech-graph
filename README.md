@@ -55,7 +55,7 @@ $ tree
 ## Methodology
 
 The scope of this graph had to fall into a respectable range that balanced a few trade-offs.
-On one hand, a graph of all acqusitions and products by each company may be comprehensive, but it would need a commensurate amount of time and effort.
+On one hand, a graph of all acqusitions and products by each company may be comprehensive, but it would need a commensurate amount of time and effort. There would also be some difficulties in creating a visualization that could meaningfully represent the hundreds of acquisitions by the tech giants.
 On the other hand, only graphing the most "notable" products leads to the question of how notability should be determined.
 This is still a valid concern but it was resolved for now by using Wikipedia as a reference for notability.
 
