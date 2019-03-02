@@ -4,6 +4,9 @@ A force-directed graph of notable tech companies, their products, and services. 
 
 *Disclaimer: All information on this page is presented for informational purposes only. There is no affiliation with any of the companies shown here.*
 
+This work has been accepted as a Late Breaking Work paper to the [ACM CHI Conference on Human Factors in Computing Systems](http://chi2019.acm.org/) (CHI 2019).
+
+
 ![](repo-images/tech-graph.png)
 
 ## Contents
